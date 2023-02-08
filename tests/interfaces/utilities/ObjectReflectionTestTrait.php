@@ -3,7 +3,7 @@
 namespace tests\interfaces\utilities;
 
 use \ReflectionProperty;
-use roady\interfaces\utilities\ObjectReflection;
+use Darling\PhpReflectionUtilities\interfaces\utilities\ObjectReflection;
 use tests\interfaces\utilities\ReflectionTestTrait;
 
 /**
@@ -18,7 +18,7 @@ trait ObjectReflectionTestTrait
 
     /**
      * The ReflectionTestTrait defines common tests for
-     * implementations of the roady\interfaces\utilities\Reflection
+     * implementations of the Darling\PhpReflectionUtilities\interfaces\utilities\Reflection
      * interface.
      *
      * @see ReflectionTestTrait
@@ -69,7 +69,7 @@ trait ObjectReflectionTestTrait
      *     $this->setClassToBeReflected($object);
      *     $this->setObjectToBeReflected($object);
      *     $objectReflection =
-     *         new \roady\classes\utilities\ObjectReflection($object);
+     *         new \Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection($object);
      *     $this->setReflectionTestInstance($objectReflection);
      *     $this->setObjectReflectionTestInstance($objectReflection);
      * }
@@ -109,23 +109,23 @@ trait ObjectReflectionTestTrait
      * var_dump($this->objectReflectionTestInstance());
      *
      * // example output:
-     * object(roady\classes\utilities\ObjectReflection)#5 (2) {
+     * object(Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection)#5 (2) {
      *   ["reflectionClass":protected]=>
      *   object(ReflectionClass)#6 (1) {
      *     ["name"]=>
-     *     string(24) "roady\classes\strings\Id"
+     *     string(24) "Darling\PhpReflectionUtilities\classes\strings\Id"
      *   }
-     *   ["object":"roady\classes\utilities\ObjectReflection":private]=>
-     *   object(roady\classes\strings\Id)#3 (2) {
-     *     ["string":"roady\classes\strings\Text":private]=>
+     *   ["object":"Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection":private]=>
+     *   object(Darling\PhpReflectionUtilities\classes\strings\Id)#3 (2) {
+     *     ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *     string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *     ["text":"roady\classes\strings\SafeText":private]=>
-     *     object(roady\classes\strings\AlphanumericText)#2 (2) {
-     *       ["string":"roady\classes\strings\Text":private]=>
+     *     ["text":"Darling\PhpReflectionUtilities\classes\strings\SafeText":private]=>
+     *     object(Darling\PhpReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
+     *       ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *       string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *       ["text":"roady\classes\strings\SafeText":private]=>
-     *       object(roady\classes\strings\Text)#4 (1) {
-     *         ["string":"roady\classes\strings\Text":private]=>
+     *       ["text":"Darling\PhpReflectionUtilities\classes\strings\SafeText":private]=>
+     *       object(Darling\PhpReflectionUtilities\classes\strings\Text)#4 (1) {
+     *         ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *         string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
      *       }
      *     }
@@ -152,16 +152,16 @@ trait ObjectReflectionTestTrait
      * var_dump($this->reflectedObject());
      *
      * // example output:
-     * object(roady\classes\strings\Id)#3 (2) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\Id)#3 (2) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *   ["text":"roady\classes\strings\SafeText":private]=>
-     *   object(roady\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"roady\classes\strings\Text":private]=>
+     *   ["text":"Darling\PhpReflectionUtilities\classes\strings\SafeText":private]=>
+     *   object(Darling\PhpReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
+     *     ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *     string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *     ["text":"roady\classes\strings\SafeText":private]=>
-     *     object(roady\classes\strings\Text)#4 (1) {
-     *       ["string":"roady\classes\strings\Text":private]=>
+     *     ["text":"Darling\PhpReflectionUtilities\classes\strings\SafeText":private]=>
+     *     object(Darling\PhpReflectionUtilities\classes\strings\Text)#4 (1) {
+     *       ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *       string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
      *     }
      *   }
@@ -193,12 +193,12 @@ trait ObjectReflectionTestTrait
      * // example output:
      * array(2) {
      *   ["text"]=>
-     *   object(roady\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"roady\classes\strings\Text":private]=>
+     *   object(Darling\PhpReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
+     *     ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *     string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *     ["text":"roady\classes\strings\SafeText":private]=>
-     *     object(roady\classes\strings\Text)#4 (1) {
-     *       ["string":"roady\classes\strings\Text":private]=>
+     *     ["text":"Darling\PhpReflectionUtilities\classes\strings\SafeText":private]=>
+     *     object(Darling\PhpReflectionUtilities\classes\strings\Text)#4 (1) {
+     *       ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *       string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
      *     }
      *   }
@@ -347,7 +347,7 @@ trait ObjectReflectionTestTrait
      * ```
      * $object = $this->randomObjectInstance();
      * $objectReflection =
-     *     new \roady\classes\utilities\ObjectReflection($object);
+     *     new \Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection($object);
      * $this->setObjectReflectionTestInstance($objectReflection);
      *
      * ```

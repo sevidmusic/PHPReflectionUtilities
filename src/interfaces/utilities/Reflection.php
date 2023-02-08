@@ -1,10 +1,10 @@
 <?php
 
-namespace roady\interfaces\utilities;
+namespace Darling\PhpReflectionUtilities\interfaces\utilities;
 
 use ReflectionException;
 use ReflectionMethod;
-use roady\interfaces\strings\ClassString;
+use Darling\PhpReflectionUtilities\interfaces\strings\ClassString;
 
 /**
  * A Reflection can be used to get information about a reflected
@@ -16,8 +16,8 @@ use roady\interfaces\strings\ClassString;
  * var_dump($reflection->type());
  *
  * // example output:
- * object(roady\classes\strings\ClassString)#4 (1) {
- *   ["string":"roady\classes\strings\Text":private]=>
+ * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
+ *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
  *   string(36) "tests\dev\mock\classes\PublicMethods"
  * }
  *
@@ -177,8 +177,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(roady\classes\strings\ClassString)#4 (1) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -230,8 +230,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(roady\classes\strings\ClassString)#5 (1) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#5 (1) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -271,8 +271,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(roady\classes\strings\ClassString)#5 (1) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#5 (1) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -344,8 +344,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(roady\classes\strings\ClassString)#4 (1) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(39) "tests\dev\mock\classes\PublicProperties"
      * }
      *
@@ -436,8 +436,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(roady\classes\strings\ClassString)#4 (1) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(39) "tests\dev\mock\classes\PublicProperties"
      * }
      *
@@ -508,8 +508,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(roady\classes\strings\ClassString)#4 (1) {
-     *   ["string":"roady\classes\strings\Text":private]=>
+     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
      *   string(39) "tests\dev\mock\classes\PublicProperties"
      * }
      *

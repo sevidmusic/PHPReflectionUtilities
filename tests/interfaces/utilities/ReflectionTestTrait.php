@@ -8,7 +8,7 @@ use \ReflectionNamedType;
 use \ReflectionParameter;
 use \ReflectionProperty;
 use \ReflectionUnionType;
-use roady\interfaces\utilities\Reflection;
+use Darling\PhpReflectionUtilities\interfaces\utilities\Reflection;
 
 /**
  * The ReflectionTestTrait defines common tests for implementations
@@ -1162,7 +1162,7 @@ trait ReflectionTestTrait
      *
      * ```
      * $this->setReflectionTestInstance(
-     *     new \roady\classes\utilities\Reflection(
+     *     new \Darling\PhpReflectionUtilities\classes\utilities\Reflection(
      *         new \ReflectionClass(
      *             $this->randomClassStringOrObjectInstance()
      *         )
@@ -1204,7 +1204,7 @@ trait ReflectionTestTrait
      *     $class = $this->randomClassStringOrObjectInstance();
      *     $this->setClassToBeReflected($class);
      *     $this->setReflectionTestInstance(
-     *         new \roady\classes\utilities\Reflection(
+     *         new \Darling\PhpReflectionUtilities\classes\utilities\Reflection(
      *             $this->reflectionClass($class)
      *         )
      *     );

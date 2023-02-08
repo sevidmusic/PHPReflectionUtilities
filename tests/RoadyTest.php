@@ -6,11 +6,11 @@ use PHPUnit\Framework\TestCase;
 
 use \ReflectionClass;
 use \stdClass;
-use roady\classes\strings\Id;
-use roady\classes\strings\Name;
-use roady\classes\strings\SafeText;
-use roady\classes\strings\Text;
-use roady\classes\utilities\Reflection;
+use Darling\PhpReflectionUtilities\classes\strings\Id;
+use Darling\PhpReflectionUtilities\classes\strings\Name;
+use Darling\PhpReflectionUtilities\classes\strings\SafeText;
+use Darling\PhpReflectionUtilities\classes\strings\Text;
+use Darling\PhpReflectionUtilities\classes\utilities\Reflection;
 use tests\dev\mock\classes\ClassABaseClass;
 use tests\dev\mock\classes\ClassBExtendsClassA;
 use tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA;
@@ -179,14 +179,14 @@ class RoadyTest extends TestCase
      * );
      *
      * // example output:
-     * string(26) "roady\classes\strings\Text"
+     * string(26) "Darling\PhpReflectionUtilities\classes\strings\Text"
      *
      * var_dump(
      *     $this->randomClassStringOrObjectInstance()::class
      * );
      *
      * // example output:
-     * string(26) "roady\classes\constituents\Identifiable"
+     * string(26) "Darling\PhpReflectionUtilities\classes\constituents\Identifiable"
      *
      * ```
      *
