@@ -1,0 +1,19 @@
+{
+    "name": "darling/php-reflection-utilities",
+    "description": "A collection of php classes that can be used to aide in reflection with PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Darling\\PhpReflectionUtilities\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sevidmusic",
+            "email": "sevidmusic@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
