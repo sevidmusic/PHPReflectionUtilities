@@ -1,12 +1,12 @@
 <?php
 
-namespace roady\classes\utilities;
+namespace Darling\PhpReflectionUtilities\classes\utilities;
 
 use \ReflectionClass;
 use \ReflectionMethod;
 use \ReflectionProperty;
-use roady\classes\utilities\Reflection;
-use roady\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
+use Darling\PhpReflectionUtilities\classes\utilities\Reflection;
+use Darling\PhpReflectionUtilities\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
 
 class ObjectReflection extends Reflection implements ObjectReflectionInterface
 {
@@ -20,7 +20,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
      * @example
      *
      * ```
-     * $reflection = new \roady\classes\utilities\ObjectReflection(
+     * $reflection = new \Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection(
      *                   new \stdclass()
      *               );
      *

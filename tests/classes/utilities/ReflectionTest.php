@@ -3,7 +3,7 @@
 namespace tests\classes\utilities;
 
 use \ReflectionClass;
-use roady\classes\utilities\Reflection;
+use Darling\PhpReflectionUtilities\classes\utilities\Reflection;
 use tests\RoadyTest;
 use tests\interfaces\utilities\ReflectionTestTrait;
 
@@ -12,7 +12,7 @@ class ReflectionTest extends RoadyTest
 
     /**
      * The ReflectionTestTrait defines common tests for
-     * implementations of the roady\interfaces\utilities\Reflection
+     * implementations of the Darling\PhpReflectionUtilities\interfaces\utilities\Reflection
      * interface.
      *
      * @see ReflectionTestTrait
