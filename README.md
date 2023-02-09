@@ -4,6 +4,11 @@ A collection of php classes that can be used to aide in reflection with PHP.
 
 # Installation
 
+```
+composer require darling/php-reflection-utilities
+
+```
+
 # Usage
 
 ### Darling\PHPReflectionUtilities\classes\utilities\Reflection
