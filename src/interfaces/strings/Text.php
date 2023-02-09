@@ -1,6 +1,6 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\interfaces\strings;
+namespace Darling\PHPReflectionUtilities\interfaces\strings;
 
 use \Stringable;
 

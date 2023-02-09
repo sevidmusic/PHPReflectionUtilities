@@ -1,9 +1,9 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\classes\strings;
+namespace Darling\PHPReflectionUtilities\classes\strings;
 
 use \Stringable;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text as TextInterface;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text as TextInterface;
 
 class Text implements TextInterface
 {

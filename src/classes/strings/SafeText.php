@@ -1,10 +1,10 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\classes\strings;
+namespace Darling\PHPReflectionUtilities\classes\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\Text;
-use Darling\PhpReflectionUtilities\interfaces\strings\SafeText as SafeTextInterface;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text as TextInterface;
+use Darling\PHPReflectionUtilities\classes\strings\Text;
+use Darling\PHPReflectionUtilities\interfaces\strings\SafeText as SafeTextInterface;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text as TextInterface;
 
 class SafeText extends Text implements SafeTextInterface
 {
@@ -18,8 +18,8 @@ class SafeText extends Text implements SafeTextInterface
      * @example
      *
      * ```
-     * $safeText = new \Darling\PhpReflectionUtilities\classes\strings\SafeText(
-     *     new \Darling\PhpReflectionUtilities\classes\strings\Text('Foo Bar Baz')
+     * $safeText = new \Darling\PHPReflectionUtilities\classes\strings\SafeText(
+     *     new \Darling\PHPReflectionUtilities\classes\strings\Text('Foo Bar Baz')
      * );
      *
      * echo $safeText;

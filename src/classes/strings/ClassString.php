@@ -1,11 +1,11 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\classes\strings;
+namespace Darling\PHPReflectionUtilities\classes\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\Text;
-use Darling\PhpReflectionUtilities\classes\strings\UnknownClass;
-use Darling\PhpReflectionUtilities\interfaces\strings\ClassString as ClassStringInterface;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text as TextInterface;
+use Darling\PHPReflectionUtilities\classes\strings\Text;
+use Darling\PHPReflectionUtilities\classes\strings\UnknownClass;
+use Darling\PHPReflectionUtilities\interfaces\strings\ClassString as ClassStringInterface;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text as TextInterface;
 
 class ClassString extends Text implements ClassStringInterface
 {
@@ -23,17 +23,17 @@ class ClassString extends Text implements ClassStringInterface
      * ```
      * $obj = (object) array('propertyName' => 'value');
      *
-     * $classString = new \Darling\PhpReflectionUtilities\classes\strings\ClassString($obj);
+     * $classString = new \Darling\PHPReflectionUtilities\classes\strings\ClassString($obj);
      *
      * echo $classString;
      * // example output: stdClass
      *
-     * $classString = new \Darling\PhpReflectionUtilities\classes\strings\ClassString(
+     * $classString = new \Darling\PHPReflectionUtilities\classes\strings\ClassString(
      *                    $classString
      *                );
      *
      * echo $classString;
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\ClassString
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\ClassString
      *
      * ```
      *
@@ -50,7 +50,7 @@ class ClassString extends Text implements ClassStringInterface
      * If the specified class does not exist, then the following
      * fully qualified namespace and class name will be returned:
      *
-     * Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * @return string
      *
@@ -58,13 +58,13 @@ class ClassString extends Text implements ClassStringInterface
      *
      * ```
      * echo $this->getClass($this);
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\ClassString
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\ClassString
      *
      * echo $this->getClass($this::class);
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\ClassString
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\ClassString
      *
      * echo $this->getClass('invalidClass');
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * ```
      *

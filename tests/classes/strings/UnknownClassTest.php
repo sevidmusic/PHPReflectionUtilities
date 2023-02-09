@@ -2,7 +2,7 @@
 
 namespace tests\classes\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\UnknownClass;
+use Darling\PHPReflectionUtilities\classes\strings\UnknownClass;
 use tests\classes\strings\ClassStringTest;
 use tests\interfaces\strings\UnknownClassTestTrait;
 
@@ -11,7 +11,7 @@ final class UnknownClassTest extends ClassStringTest
 
     /**
      * The UnknownClassTestTrait defines common tests for implementations
-     * of the Darling\PhpReflectionUtilities\interfaces\strings\UnknownClass interface.
+     * of the Darling\PHPReflectionUtilities\interfaces\strings\UnknownClass interface.
      *
      * @see UnknownClassTestTrait
      *

@@ -1,10 +1,10 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\classes\strings;
+namespace Darling\PHPReflectionUtilities\classes\strings;
 
-use Darling\PhpReflectionUtilities\interfaces\strings\UnknownClass as UnknownClassInterface;
+use Darling\PHPReflectionUtilities\interfaces\strings\UnknownClass as UnknownClassInterface;
 
-use Darling\PhpReflectionUtilities\classes\strings\ClassString;
+use Darling\PHPReflectionUtilities\classes\strings\ClassString;
 
 final class UnknownClass extends ClassString implements UnknownClassInterface
 {
@@ -18,7 +18,7 @@ final class UnknownClass extends ClassString implements UnknownClassInterface
      * $text = new UnknownClass();
      *
      * echo $unknownClass;
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * ```
      *

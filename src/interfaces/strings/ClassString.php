@@ -1,8 +1,8 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\interfaces\strings;
+namespace Darling\PHPReflectionUtilities\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\interfaces\strings\Text;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text;
 
 /**
  * A ClassString is the name of an existing Class prefixed by
@@ -12,7 +12,7 @@ use Darling\PhpReflectionUtilities\interfaces\strings\Text;
  *
  * ```
  * echo $classString;
- * // example output: Darling\PhpReflectionUtilities\classes\strings\ClassString
+ * // example output: Darling\PHPReflectionUtilities\classes\strings\ClassString
  *
  * ```
  *
@@ -32,7 +32,7 @@ interface ClassString extends Text
      *
      * ```
      * echo $classString->__toString();
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\ClassString
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\ClassString
      *
      * ```
      *

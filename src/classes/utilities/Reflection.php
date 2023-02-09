@@ -1,6 +1,6 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\classes\utilities;
+namespace Darling\PHPReflectionUtilities\classes\utilities;
 
 use \ReflectionClass;
 use \ReflectionMethod;
@@ -8,9 +8,9 @@ use \ReflectionNamedType;
 use \ReflectionParameter;
 use \ReflectionProperty;
 use \ReflectionUnionType;
-use Darling\PhpReflectionUtilities\classes\strings\ClassString;
-use Darling\PhpReflectionUtilities\interfaces\strings\ClassString as ClassStringInterface;
-use Darling\PhpReflectionUtilities\interfaces\utilities\Reflection as ReflectionInterface;
+use Darling\PHPReflectionUtilities\classes\strings\ClassString;
+use Darling\PHPReflectionUtilities\interfaces\strings\ClassString as ClassStringInterface;
+use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection as ReflectionInterface;
 
 class Reflection implements ReflectionInterface
 {
@@ -26,7 +26,7 @@ class Reflection implements ReflectionInterface
      * @example
      *
      * ```
-     * $reflection = new \Darling\PhpReflectionUtilities\classes\utilities\Reflection(
+     * $reflection = new \Darling\PHPReflectionUtilities\classes\utilities\Reflection(
      *                   new \ReflectionClass(\stdClass::class)
      *               );
      *
@@ -241,8 +241,8 @@ class Reflection implements ReflectionInterface
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#13 (1) {
-     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#13 (1) {
+     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *
@@ -407,8 +407,8 @@ class Reflection implements ReflectionInterface
      * var_dump($this->type());
      *
      * // example output:
-     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *
@@ -483,8 +483,8 @@ class Reflection implements ReflectionInterface
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -567,8 +567,8 @@ class Reflection implements ReflectionInterface
      * var_dump($this->type());
      *
      * // example output:
-     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *
@@ -691,8 +691,8 @@ class Reflection implements ReflectionInterface
      * var_dump($this->type());
      *
      * // example output:
-     * object(Darling\PhpReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PhpReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *

@@ -2,9 +2,9 @@
 
 namespace tests\classes\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\SafeText;
-use Darling\PhpReflectionUtilities\classes\strings\Text as TextToBeRepresentedBySafeText;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text as Text;
+use Darling\PHPReflectionUtilities\classes\strings\SafeText;
+use Darling\PHPReflectionUtilities\classes\strings\Text as TextToBeRepresentedBySafeText;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text as Text;
 use tests\classes\strings\TextTest;
 use tests\interfaces\strings\SafeTextTestTrait;
 
@@ -13,7 +13,7 @@ class SafeTextTest extends TextTest
 
     /**
      * The SafeTextTestTrait defines common tests for implementations
-     * of the Darling\PhpReflectionUtilities\interfaces\strings\SafeText interface.
+     * of the Darling\PHPReflectionUtilities\interfaces\strings\SafeText interface.
      *
      * @see SafeTextTestTrait
      *

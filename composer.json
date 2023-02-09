@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Darling\\PhpReflectionUtilities\\": "src/",
+            "Darling\\PHPReflectionUtilities\\": "src/",
             "tests\\": "tests/"
         }
     },
