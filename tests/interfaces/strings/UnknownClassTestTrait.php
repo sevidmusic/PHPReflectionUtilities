@@ -2,8 +2,8 @@
 
 namespace tests\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\UnknownClass as UnknownClassString;
-use Darling\PhpReflectionUtilities\interfaces\strings\UnknownClass;
+use Darling\PHPReflectionUtilities\classes\strings\UnknownClass as UnknownClassString;
+use Darling\PHPReflectionUtilities\interfaces\strings\UnknownClass;
 use tests\interfaces\strings\ClassStringTestTrait;
 
 /**
@@ -18,7 +18,7 @@ trait UnknownClassTestTrait
 
     /**
      * The ClassStringTestTrait defines common tests for
-     * implementations of the Darling\PhpReflectionUtilities\interfaces\strings\ClassString
+     * implementations of the Darling\PHPReflectionUtilities\interfaces\strings\ClassString
      * interface.
      */
     use ClassStringTestTrait;
@@ -38,7 +38,7 @@ trait UnknownClassTestTrait
      *
      * ```
      * echo $this->unknownClassTestInstance();
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * ```
      *
@@ -64,7 +64,7 @@ trait UnknownClassTestTrait
      *
      * ```
      * $this->setUnknownClassTestInstance(
-     *     new \Darling\PhpReflectionUtilities\classes\strings\UnknownClass()
+     *     new \Darling\PHPReflectionUtilities\classes\strings\UnknownClass()
      * );
      *
      * ```

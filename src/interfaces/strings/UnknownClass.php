@@ -1,8 +1,8 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\interfaces\strings;
+namespace Darling\PHPReflectionUtilities\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\interfaces\strings\ClassString;
+use Darling\PHPReflectionUtilities\interfaces\strings\ClassString;
 
 /**
  * An UnknownClass is a ClassString that represents an unknown class.
@@ -11,7 +11,7 @@ use Darling\PhpReflectionUtilities\interfaces\strings\ClassString;
  *
  * ```
  * echo $unknownClass;
- * // example output: Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+ * // example output: Darling\PHPReflectionUtilities\classes\strings\UnknownClass
  *
  * ```
  *
@@ -22,7 +22,7 @@ interface UnknownClass extends ClassString
 {
 
     /**
-     * Return Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * Return Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * @return string
      *
@@ -30,7 +30,7 @@ interface UnknownClass extends ClassString
      *
      * ```
      * echo $unknownClass->__toString();
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * ```
      *

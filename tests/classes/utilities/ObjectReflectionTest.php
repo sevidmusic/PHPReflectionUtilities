@@ -2,7 +2,7 @@
 
 namespace tests\classes\utilities;
 
-use Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection;
+use Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection;
 use tests\RoadyTest;
 use tests\classes\utilities\ReflectionTest;
 use tests\interfaces\utilities\ObjectReflectionTestTrait;
@@ -13,7 +13,7 @@ class ObjectReflectionTest extends ReflectionTest
     /**
      * The ObjectReflectionTestTrait defines
      * common tests for implementations of the
-     * Darling\PhpReflectionUtilities\interfaces\utilities\ObjectReflection
+     * Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection
      * interface.
      *
      * @see ObjectReflectionTestTrait

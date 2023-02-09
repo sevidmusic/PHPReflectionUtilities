@@ -2,9 +2,9 @@
 
 namespace tests\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\Text as TextToBeRepresentedBySafeText;
-use Darling\PhpReflectionUtilities\interfaces\strings\SafeText;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text;
+use Darling\PHPReflectionUtilities\classes\strings\Text as TextToBeRepresentedBySafeText;
+use Darling\PHPReflectionUtilities\interfaces\strings\SafeText;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text;
 use tests\interfaces\strings\TextTestTrait;
 
 /**
@@ -49,7 +49,7 @@ trait SafeTextTestTrait
      * protected function setUp(): void
      * {
      *     $this->setUpWithSpecificText(
-     *         new \Darling\PhpReflectionUtilities\classes\strings\Text($this->randomChars())
+     *         new \Darling\PHPReflectionUtilities\classes\strings\Text($this->randomChars())
      *     );
      * }
      *
@@ -70,7 +70,7 @@ trait SafeTextTestTrait
      * protected function setUpWithEmptyString(): void
      * {
      *     $this->setUpWithSpecificText(
-     *         new \Darling\PhpReflectionUtilities\classes\strings\Text('')
+     *         new \Darling\PHPReflectionUtilities\classes\strings\Text('')
      *     );
      * }
      *
@@ -102,7 +102,7 @@ trait SafeTextTestTrait
      * protected function setUpWithSpecificText(Text $text): void
      * {
      *     $this->setExpectedString($this->makeStringSafe($text));
-     *     $safeText = new \Darling\PhpReflectionUtilities\classes\strings\SafeText($text);
+     *     $safeText = new \Darling\PHPReflectionUtilities\classes\strings\SafeText($text);
      *     $this->setTextTestInstance($safeText);
      *     $this->setSafeTextTestInstance($safeText);
      * }
@@ -290,8 +290,8 @@ trait SafeTextTestTrait
      *
      * ```
      * $this->setSafeTextTestInstance(
-     *     new Darling\PhpReflectionUtilities\classes\strings\SafeText(
-     *         new Darling\PhpReflectionUtilities\classes\strings\Text('Foo')
+     *     new Darling\PHPReflectionUtilities\classes\strings\SafeText(
+     *         new Darling\PHPReflectionUtilities\classes\strings\Text('Foo')
      *     )
      * );
      *

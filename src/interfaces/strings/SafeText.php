@@ -1,8 +1,8 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\interfaces\strings;
+namespace Darling\PHPReflectionUtilities\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\interfaces\strings\Text;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text;
 
 /**
  * SafeText is used to provide a safe form of Text that may contain

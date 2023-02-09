@@ -2,7 +2,7 @@
 
 namespace tests\classes\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\Text;
+use Darling\PHPReflectionUtilities\classes\strings\Text;
 use tests\RoadyTest;
 use tests\interfaces\strings\TextTestTrait;
 
@@ -11,7 +11,7 @@ class TextTest extends RoadyTest
 
     /**
      * The TextTestTrait defines common tests for implementations of
-     * the Darling\PhpReflectionUtilities\interfaces\strings\Text interface.
+     * the Darling\PHPReflectionUtilities\interfaces\strings\Text interface.
      *
      * @see TextTestTrait
      */

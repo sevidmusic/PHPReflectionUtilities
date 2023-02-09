@@ -2,11 +2,11 @@
 
 namespace tests\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\SafeText as ExistingClassSafeText;
-use Darling\PhpReflectionUtilities\classes\strings\Text as ExistingClassText;
-use Darling\PhpReflectionUtilities\classes\strings\UnknownClass;
-use Darling\PhpReflectionUtilities\interfaces\strings\ClassString;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text;
+use Darling\PHPReflectionUtilities\classes\strings\SafeText as ExistingClassSafeText;
+use Darling\PHPReflectionUtilities\classes\strings\Text as ExistingClassText;
+use Darling\PHPReflectionUtilities\classes\strings\UnknownClass;
+use Darling\PHPReflectionUtilities\interfaces\strings\ClassString;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text;
 use tests\interfaces\strings\TextTestTrait;
 
 /**
@@ -53,7 +53,7 @@ trait ClassStringTestTrait
      * {
      *     $values = [
      *         $this->randomChars(),
-     *         \Darling\PhpReflectionUtilities\classes\strings\ClassString::class,
+     *         \Darling\PHPReflectionUtilities\classes\strings\ClassString::class,
      *         $this,
      *     ];
      *     $this->setUpWithSpecifiedClass(
@@ -95,7 +95,7 @@ trait ClassStringTestTrait
      *         $this->determineClass($classString)
      *     );
      *     $classStringInstance =
-     *         new \Darling\PhpReflectionUtilities\classes\strings\ClassString(
+     *         new \Darling\PHPReflectionUtilities\classes\strings\ClassString(
      *             $classString
      *         );
      *     $this->setTextTestInstance($classStringInstance);
@@ -138,7 +138,7 @@ trait ClassStringTestTrait
      *
      * ```
      * $this->setClassStringTestInstance(
-     *     new \Darling\PhpReflectionUtilities\classes\strings\ClassString($this)
+     *     new \Darling\PHPReflectionUtilities\classes\strings\ClassString($this)
      * );
      *
      * ```
@@ -180,7 +180,7 @@ trait ClassStringTestTrait
      * // example output: tests\classes\strings\ClassStringTest
      *
      * echo $this->determineClass('invalid-class-string');
-     * // example output: Darling\PhpReflectionUtilities\classes\strings\UnknownClass
+     * // example output: Darling\PHPReflectionUtilities\classes\strings\UnknownClass
      *
      * ```
      *

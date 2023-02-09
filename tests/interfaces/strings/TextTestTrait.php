@@ -2,7 +2,7 @@
 
 namespace tests\interfaces\strings;
 
-use Darling\PhpReflectionUtilities\interfaces\strings\Text;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text;
 
 /**
  * The TextTestTrait defines common tests for implementations of the
@@ -51,7 +51,7 @@ trait TextTestTrait
      *     $string = $this->randomChars();
      *     $this->setExpectedString($string);
      *     $this->setTextTestInstance(
-     *         new \Darling\PhpReflectionUtilities\classes\strings\Text($string)
+     *         new \Darling\PHPReflectionUtilities\classes\strings\Text($string)
      *     );
      * }
      *
@@ -112,7 +112,7 @@ trait TextTestTrait
      *
      * ```
      * $this->setTextTestInstance(
-     *     new \Darling\PhpReflectionUtilities\classes\strings\Text(
+     *     new \Darling\PHPReflectionUtilities\classes\strings\Text(
      *         $this->randomChars()
      *     )
      * );

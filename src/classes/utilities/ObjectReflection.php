@@ -1,12 +1,12 @@
 <?php
 
-namespace Darling\PhpReflectionUtilities\classes\utilities;
+namespace Darling\PHPReflectionUtilities\classes\utilities;
 
 use \ReflectionClass;
 use \ReflectionMethod;
 use \ReflectionProperty;
-use Darling\PhpReflectionUtilities\classes\utilities\Reflection;
-use Darling\PhpReflectionUtilities\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
+use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
+use Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
 
 class ObjectReflection extends Reflection implements ObjectReflectionInterface
 {
@@ -20,7 +20,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
      * @example
      *
      * ```
-     * $reflection = new \Darling\PhpReflectionUtilities\classes\utilities\ObjectReflection(
+     * $reflection = new \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection(
      *                   new \stdclass()
      *               );
      *

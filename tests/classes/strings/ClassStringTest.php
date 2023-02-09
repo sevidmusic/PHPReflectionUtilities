@@ -2,10 +2,10 @@
 
 namespace tests\classes\strings;
 
-use Darling\PhpReflectionUtilities\classes\strings\ClassString;
-use Darling\PhpReflectionUtilities\classes\strings\Text as TextToBeRepresentedByClassString;
-use Darling\PhpReflectionUtilities\classes\strings\UnknownClass;
-use Darling\PhpReflectionUtilities\interfaces\strings\Text as Text;
+use Darling\PHPReflectionUtilities\classes\strings\ClassString;
+use Darling\PHPReflectionUtilities\classes\strings\Text as TextToBeRepresentedByClassString;
+use Darling\PHPReflectionUtilities\classes\strings\UnknownClass;
+use Darling\PHPReflectionUtilities\interfaces\strings\Text as Text;
 use tests\classes\strings\TextTest;
 use tests\interfaces\strings\ClassStringTestTrait;
 
@@ -14,7 +14,7 @@ class ClassStringTest extends TextTest
 
     /**
      * The ClassStringTestTrait defines common tests for
-     * implementations of the Darling\PhpReflectionUtilities\interfaces\strings\ClassString
+     * implementations of the Darling\PHPReflectionUtilities\interfaces\strings\ClassString
      * interface.
      *
      * @see ClassStringTestTrait
