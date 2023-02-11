@@ -8,8 +8,8 @@ use \ReflectionNamedType;
 use \ReflectionParameter;
 use \ReflectionProperty;
 use \ReflectionUnionType;
-use Darling\PHPReflectionUtilities\classes\strings\ClassString;
-use Darling\PHPReflectionUtilities\interfaces\strings\ClassString as ClassStringInterface;
+use Darling\PHPTextTypes\classes\strings\ClassString;
+use Darling\PHPTextTypes\interfaces\strings\ClassString as ClassStringInterface;
 use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection as ReflectionInterface;
 
 class Reflection implements ReflectionInterface
@@ -241,8 +241,8 @@ class Reflection implements ReflectionInterface
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#13 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#13 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *
@@ -407,8 +407,8 @@ class Reflection implements ReflectionInterface
      * var_dump($this->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *
@@ -483,8 +483,8 @@ class Reflection implements ReflectionInterface
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -567,8 +567,8 @@ class Reflection implements ReflectionInterface
      * var_dump($this->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *
@@ -691,8 +691,8 @@ class Reflection implements ReflectionInterface
      * var_dump($this->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
      * }
      *

@@ -4,10 +4,10 @@ namespace tests\classes\utilities;
 
 use \ReflectionClass;
 use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
-use tests\RoadyTest;
+use tests\PHPReflectionUtilitiesTest;
 use tests\interfaces\utilities\ReflectionTestTrait;
 
-class ReflectionTest extends RoadyTest
+class ReflectionTest extends PHPReflectionUtilitiesTest
 {
 
     /**

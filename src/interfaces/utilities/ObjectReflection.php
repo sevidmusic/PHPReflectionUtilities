@@ -11,7 +11,7 @@ use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
  * @example
  *
  * ```
- * $id = new \Darling\PHPReflectionUtilities\classes\strings\Id();
+ * $id = new \Darling\PHPTextTypes\classes\strings\Id();
  *
  * $objectReflection = new \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection($id);
  *
@@ -20,12 +20,12 @@ use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
  * // example output:
  * array(2) {
  *   ["text"]=>
- *   object(Darling\PHPReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
- *     ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+ *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
+ *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
  *     string(63) "RvG52EFsDA2C9CQMP8yrtZjPhyBV2mexyENWqcAngqlkfq6voBsbHniQpg3G7Tr"
- *     ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
- *     object(Darling\PHPReflectionUtilities\classes\strings\Text)#4 (1) {
- *       ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+ *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+ *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
+ *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
  *       string(63) "rvG52EFsDA2C9CQMP8yrtZjPhyBV2mexyENWqcAngqlkfq6voBsbHniQpg3G7Tr"
  *     }
  *   }
@@ -55,12 +55,12 @@ interface ObjectReflection extends Reflection
      * // example output:
      * array(2) {
      *   ["text"]=>
-     *   object(Darling\PHPReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
+     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *     string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *     ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPReflectionUtilities\classes\strings\Text)#4 (1) {
-     *       ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
+     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *       string(71) "eQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
      *     }
      *   }
@@ -84,16 +84,16 @@ interface ObjectReflection extends Reflection
      * var_dump($reflectionObject->reflectedObject());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\Id)#3 (2) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\Id)#3 (2) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *   ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *   object(Darling\PHPReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *   ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
+     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *     string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *     ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPReflectionUtilities\classes\strings\Text)#4 (1) {
-     *       ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
+     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *       string(71) "eQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
      *     }
      *   }

@@ -4,7 +4,7 @@ namespace Darling\PHPReflectionUtilities\interfaces\utilities;
 
 use ReflectionException;
 use ReflectionMethod;
-use Darling\PHPReflectionUtilities\interfaces\strings\ClassString;
+use Darling\PHPTextTypes\interfaces\strings\ClassString;
 
 /**
  * A Reflection can be used to get information about a reflected
@@ -16,8 +16,8 @@ use Darling\PHPReflectionUtilities\interfaces\strings\ClassString;
  * var_dump($reflection->type());
  *
  * // example output:
- * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
- *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+ * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+ *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
  *   string(36) "tests\dev\mock\classes\PublicMethods"
  * }
  *
@@ -177,8 +177,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -230,8 +230,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#5 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#5 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -271,8 +271,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#5 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#5 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(36) "tests\dev\mock\classes\PublicMethods"
      * }
      *
@@ -344,8 +344,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(39) "tests\dev\mock\classes\PublicProperties"
      * }
      *
@@ -436,8 +436,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(39) "tests\dev\mock\classes\PublicProperties"
      * }
      *
@@ -508,8 +508,8 @@ interface Reflection
      * var_dump($reflection->type());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(39) "tests\dev\mock\classes\PublicProperties"
      * }
      *

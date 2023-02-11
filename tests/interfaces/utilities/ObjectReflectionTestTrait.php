@@ -113,19 +113,19 @@ trait ObjectReflectionTestTrait
      *   ["reflectionClass":protected]=>
      *   object(ReflectionClass)#6 (1) {
      *     ["name"]=>
-     *     string(24) "Darling\PHPReflectionUtilities\classes\strings\Id"
+     *     string(24) "Darling\PHPTextTypes\classes\strings\Id"
      *   }
      *   ["object":"Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection":private]=>
-     *   object(Darling\PHPReflectionUtilities\classes\strings\Id)#3 (2) {
-     *     ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *   object(Darling\PHPTextTypes\classes\strings\Id)#3 (2) {
+     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *     string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *     ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
-     *       ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *     object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
+     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *       string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *       ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *       object(Darling\PHPReflectionUtilities\classes\strings\Text)#4 (1) {
-     *         ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *       ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *       object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
+     *         ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *         string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
      *       }
      *     }
@@ -152,16 +152,16 @@ trait ObjectReflectionTestTrait
      * var_dump($this->reflectedObject());
      *
      * // example output:
-     * object(Darling\PHPReflectionUtilities\classes\strings\Id)#3 (2) {
-     *   ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     * object(Darling\PHPTextTypes\classes\strings\Id)#3 (2) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *   string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *   ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *   object(Darling\PHPReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *   ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
+     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *     string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *     ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPReflectionUtilities\classes\strings\Text)#4 (1) {
-     *       ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
+     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *       string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
      *     }
      *   }
@@ -193,12 +193,12 @@ trait ObjectReflectionTestTrait
      * // example output:
      * array(2) {
      *   ["text"]=>
-     *   object(Darling\PHPReflectionUtilities\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
+     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *     string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
-     *     ["text":"Darling\PHPReflectionUtilities\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPReflectionUtilities\classes\strings\Text)#4 (1) {
-     *       ["string":"Darling\PHPReflectionUtilities\classes\strings\Text":private]=>
+     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
+     *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
+     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
      *       string(76) "EgFAbM05LbxiczC7fTVyzkGnY2f3OmfkaTBQX8Z8OEYsFc7jGK0M3RV6OiM6HHjKp3t6msO6q1Pf"
      *     }
      *   }

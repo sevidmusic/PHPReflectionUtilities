@@ -3,7 +3,7 @@
 namespace tests\classes\utilities;
 
 use Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection;
-use tests\RoadyTest;
+use tests\PHPReflectionUtilitiesTest;
 use tests\classes\utilities\ReflectionTest;
 use tests\interfaces\utilities\ObjectReflectionTestTrait;
 
