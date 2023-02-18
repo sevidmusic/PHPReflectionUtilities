@@ -11,12 +11,13 @@ use Darling\PHPUnitTestUtilities\traits\PHPUnitRandomValues;
  * Defines common methods that may be useful to all
  * PHPReflectionUtilities test classes.
  *
- * All PHPReflectionUtilities test classes must extend from
- * this class.
+ * This class makes use of the traits provided by the
+ * https://github.com/sevidmusic/PHPUnitTestUtilities
+ * library which provides traits that define methods
+ * to aide in the implementation of phpunit tests.
  *
- * This class also serves as an example of how the traits
- * provided by this library can be used in a phpunit test
- * class.
+ * All PHPReflectionUtilities test classes must extend
+ * from this class.
  *
  */
 class PHPReflectionUtilitiesTest extends TestCase
@@ -25,5 +26,4 @@ class PHPReflectionUtilitiesTest extends TestCase
     use PHPUnitTestMessages;
     use PHPUnitRandomValues;
 }
-
 

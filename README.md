@@ -1,6 +1,19 @@
 # PHPReflectionUtilities
 
-A collection of php classes that can be used to aide in reflection with PHP.
+A collection of php classes that can be used to aide in reflection
+with PHP.
+
+This library makes use of the following libraries:
+
+[Darling\PHPUnitTestUtilities](https://github.com/sevidmusic/PHPUnitTestUtilities)
+[Darling\PHPTextTypes](https://github.com/sevidmusic/PHPTextTypes)
+
+- [Installation](#installation)
+
+- [Classes](#classes)
+
+  - [Darling\PHPTextTypes\Text](#darlingphpreflectionutilitiesreflection)
+  - [Darling\PHPTextTypes\ClassString](#darlingreflectionutilitiesobjectreflection)
 
 # Installation
 
@@ -9,36 +22,22 @@ composer require darling/php-reflection-utilities
 
 ```
 
-# Usage
+# Classes
 
-### Darling\PHPReflectionUtilities\classes\utilities\Reflection
+The following classes are provided by the PHPReflectionUtilities
+library.
 
-```
-<?php
+These classes can be used as is, or extended.
 
-use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
-
-$class = Reflection::class;
-
-$reflection = new Reflection(new \ReflectionClass($class));
-
-var_dump($reflection->type());
+### [Darling\PHPReflectionUtilities\classes\utilities\Reflection](https://github.com/sevidmusic/PHPReflectionUtilities/blob/main/src/classes/utilities/Reflection.php)
 
 ```
 
-### Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection
+```
+
+### [Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection](https://github.com/sevidmusic/PHPReflectionUtilities/blob/main/src/classes/utilities/ObjectReflection.php)
 
 ```
-<?php
-
-use Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection;
-
-$class = new ObjectReflection(new stdClass());
-
-$reflection = new Reflection(new \ReflectionClass($class));
-
-var_dump($reflection->type());
-
 
 ```
 

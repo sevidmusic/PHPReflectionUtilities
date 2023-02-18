@@ -11,27 +11,6 @@ use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
  * @example
  *
  * ```
- * $id = new \Darling\PHPTextTypes\classes\strings\Id();
- *
- * $objectReflection = new \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection($id);
- *
- * var_dump($objectReflection->propertyValues());
- *
- * // example output:
- * array(2) {
- *   ["text"]=>
- *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
- *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
- *     string(63) "RvG52EFsDA2C9CQMP8yrtZjPhyBV2mexyENWqcAngqlkfq6voBsbHniQpg3G7Tr"
- *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
- *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
- *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
- *       string(63) "rvG52EFsDA2C9CQMP8yrtZjPhyBV2mexyENWqcAngqlkfq6voBsbHniQpg3G7Tr"
- *     }
- *   }
- *   ["string"]=>
- *   string(63) "RvG52EFsDA2C9CQMP8yrtZjPhyBV2mexyENWqcAngqlkfq6voBsbHniQpg3G7Tr"
- * }
  *
  * ```
  */
@@ -50,23 +29,6 @@ interface ObjectReflection extends Reflection
      * @example
      *
      * ```
-     * var_dump($reflectedObject->determinePropertyValues());
-     *
-     * // example output:
-     * array(2) {
-     *   ["text"]=>
-     *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *     string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
-     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *       string(71) "eQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *     }
-     *   }
-     *   ["string"]=>
-     *   string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     * }
      *
      * ```
      *
@@ -81,23 +43,6 @@ interface ObjectReflection extends Reflection
      * @example
      *
      * ```
-     * var_dump($reflectionObject->reflectedObject());
-     *
-     * // example output:
-     * object(Darling\PHPTextTypes\classes\strings\Id)#3 (2) {
-     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *   ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
-     *   object(Darling\PHPTextTypes\classes\strings\AlphanumericText)#2 (2) {
-     *     ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *     string(71) "EQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *     ["text":"Darling\PHPTextTypes\classes\strings\SafeText":private]=>
-     *     object(Darling\PHPTextTypes\classes\strings\Text)#4 (1) {
-     *       ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *       string(71) "eQGZrDimpUqWfE2dIJttyRdOmXnuRpsCZ2yxj1z97M3voCWiXAWJl5QnDgKFKfsX8hNsNIe"
-     *     }
-     *   }
-     * }
      *
      * ```
      *

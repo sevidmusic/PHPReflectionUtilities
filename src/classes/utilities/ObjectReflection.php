@@ -20,9 +20,10 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
      * @example
      *
      * ```
-     * $reflection = new \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection(
-     *                   new \stdclass()
-     *               );
+     * $reflection =
+     *     new \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection(
+     *         new \stdclass()
+     *     );
      *
      * ```
      *
