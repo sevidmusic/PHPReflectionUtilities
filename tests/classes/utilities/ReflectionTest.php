@@ -12,7 +12,8 @@ class ReflectionTest extends PHPReflectionUtilitiesTest
 
     /**
      * The ReflectionTestTrait defines common tests for
-     * implementations of the Darling\PHPReflectionUtilities\interfaces\utilities\Reflection
+     * implementations of the
+     * Darling\PHPReflectionUtilities\interfaces\utilities\Reflection
      * interface.
      *
      * @see ReflectionTestTrait

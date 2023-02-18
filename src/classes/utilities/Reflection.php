@@ -26,9 +26,10 @@ class Reflection implements ReflectionInterface
      * @example
      *
      * ```
-     * $reflection = new \Darling\PHPReflectionUtilities\classes\utilities\Reflection(
-     *                   new \ReflectionClass(\stdClass::class)
-     *               );
+     * $reflection =
+     *     new \Darling\PHPReflectionUtilities\classes\utilities\Reflection(
+     *         new \ReflectionClass(\stdClass::class)
+     *     );
      *
      * ```
      *

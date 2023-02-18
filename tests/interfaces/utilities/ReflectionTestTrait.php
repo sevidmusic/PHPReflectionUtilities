@@ -86,38 +86,33 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(36) "tests\dev\mock\classes\PublicMethods"
-     *
      * var_dump(
-     *     $this->determineReflectedClassesMethodNames(
-     *         ReflectionMethod::IS_PUBLIC
-     *     )
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class :
+     *     $this->reflectedClass()
      * );
      *
      * // example output:
-     * array(8) {
+     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     *
+     * var_dump($this->determineReflectedClassesMethodNames());
+     *
+     * // example output:
+     * array(4) {
      *   [0]=>
-     *   string(25) "publicMethodToReturnArray"
+     *   string(32) "classBExtendsClassAPrivateMethod"
      *   [1]=>
-     *   string(24) "publicMethodToReturnBool"
+     *   string(38) "classBExtendsClassAPrivateStaticMethod"
      *   [2]=>
-     *   string(27) "publicMethodToReturnClosure"
+     *   string(23) "privateMethodSharedName"
      *   [3]=>
-     *   string(23) "publicMethodToReturnInt"
-     *   [4]=>
-     *   string(25) "publicMethodToReturnFloat"
-     *   [5]=>
-     *   string(32) "publicMethodToReturnObjectOrNull"
-     *   [6]=>
-     *   string(26) "publicMethodToReturnObject"
-     *   [7]=>
-     *   string(26) "publicMethodToReturnString"
+     *   string(29) "privateStaticMethodSharedName"
      * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassBExtendsClassA.php
      *
      */
     protected function determineReflectedClassesMethodNames(
@@ -156,24 +151,31 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class :
+     *     $this->reflectedClass()
+     * );
      *
      * // example output:
      * string(36) "tests\dev\mock\classes\PublicMethods"
      *
      * var_dump(
      *     $this->determineReflectedClassesMethodParameterNames(
-     *         'publicMethodToReturnObjectOrNull'
+     *         'publicMethodToReturnFloat'
      *     )
      * );
      *
      * // example output:
      * array(1) {
      *   [0]=>
-     *   string(28) "parameterAcceptsObjectOrNull"
+     *   string(21) "parameterAcceptsFloat"
      * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     protected function determineReflectedClassesMethodParameterNames(
@@ -218,9 +220,13 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class :
+     *     $this->reflectedClass()
+     * );
      *
-     * // example output:
+     * // example output
      * string(36) "tests\dev\mock\classes\PublicMethods"
      *
      * var_dump(
@@ -228,6 +234,8 @@ trait ReflectionTestTrait
      *         'publicMethodToReturnObjectOrNull'
      *     )
      * );
+     *
+     * // example output
      * array(1) {
      *   ["parameterAcceptsObjectOrNull"]=>
      *   array(2) {
@@ -237,7 +245,11 @@ trait ReflectionTestTrait
      *     string(4) "null"
      *   }
      * }
+     *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     protected function determineReflectedClassesMethodParameterTypes(
@@ -326,41 +338,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
-     *
-     * $types = [];
-     *
-     * $reflectionProperty = new \ReflectionProperty(
-     *     $this->reflectedClass()::class,
-     *     'classDExtendsClassCInheirtsFromClassBAndFromClassAPublicProperty'
-     * );
-     *
-     * $reflectionUnionType = $reflectionProperty->getType();
-     *
-     * $this->addUnionTypesToArray(
-     *     $reflectionProperty,
-     *     $types,
-     *     $reflectionUnionType
-     * );
-     *
-     * var_dump($types);
-     *
-     * // example output:
-     *
-     * array(1) {
-     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPublicProperty"]=>
-     *   array(3) {
-     *     [0]=>
-     *     string(3) "int"
-     *     [1]=>
-     *     string(4) "bool"
-     *     [2]=>
-     *     string(4) "null"
-     *   }
-     * }
      *
      * ```
      *
@@ -447,36 +424,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
-     *
-     * $types = [];
-     *
-     * $reflectionProperty = new \ReflectionProperty(
-     *     $this->reflectedClass()::class,
-     *     'classDExtendsClassCInheirtsFromClassBAndFromClassAPublicStaticProperty'
-     * );
-     *
-     * $reflectionNamedType = $reflectionProperty->getType();
-     *
-     * $this->addNamedTypeToArray(
-     *     $reflectionProperty,
-     *     $types,
-     *     $reflectionNamedType
-     * );
-     *
-     * var_dump($types);
-     *
-     * // example output:
-     * array(1) {
-     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPublicStaticProperty"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     * }
      *
      * ```
      *
@@ -542,36 +489,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(39) "tests\dev\mock\classes\PublicProperties"
-     *
-     * var_dump(
-     *     $this->determineReflectedClassesPropertyNames(
-     *         ReflectionMethod::IS_PUBLIC
-     *     )
-     * );
-     *
-     * // example output:
-     * array(8) {
-     *   [0]=>
-     *   string(26) "publicPropertyAcceptsArray"
-     *   [1]=>
-     *   string(25) "publicPropertyAcceptsBool"
-     *   [2]=>
-     *   string(34) "publicPropertyAcceptsClosureOrNull"
-     *   [3]=>
-     *   string(26) "publicPropertyAcceptsFloat"
-     *   [4]=>
-     *   string(24) "publicPropertyAcceptsInt"
-     *   [5]=>
-     *   string(33) "publicPropertyAcceptsObjectOrNull"
-     *   [6]=>
-     *   string(27) "publicPropertyAcceptsObject"
-     *   [7]=>
-     *   string(27) "publicPropertyAcceptsString"
-     * }
      *
      * ```
      *
@@ -669,48 +586,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
-     *
-     * $propertyNames = [];
-     *
-     * $this->addParentPropertyNamesToArray(
-     *     $this->reflectedClass()::class,
-     *     $propertyNames,
-     *     Reflection::IS_PRIVATE
-     * );
-     *
-     * var_dump($propertyNames);
-     *
-     * // example output:
-     * array(12) {
-     *   [0]=>
-     *   string(52) "classCExtendsClassBInheirtsFromClassAPrivateProperty"
-     *   [1]=>
-     *   string(58) "classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"
-     *   [2]=>
-     *   string(25) "privatePropertySharedName"
-     *   [3]=>
-     *   string(31) "privateStaticPropertySharedName"
-     *   [4]=>
-     *   string(34) "classBExtendsClassAPrivateProperty"
-     *   [5]=>
-     *   string(40) "classBExtendsClassAPrivateStaticProperty"
-     *   [6]=>
-     *   string(25) "privatePropertySharedName"
-     *   [7]=>
-     *   string(31) "privateStaticPropertySharedName"
-     *   [8]=>
-     *   string(30) "classABaseClassPrivateProperty"
-     *   [9]=>
-     *   string(36) "classABaseClassPrivateStaticProperty"
-     *   [10]=>
-     *   string(25) "privatePropertySharedName"
-     *   [11]=>
-     *   string(31) "privateStaticPropertySharedName"
-     * }
      *
      * ```
      *
@@ -788,63 +663,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(39) "tests\dev\mock\classes\PublicProperties"
-     *
-     * var_dump($this->determineReflectedClassesPropertyTypes(
-     *     ReflectionMethod::IS_PUBLIC)
-     * );
-     *
-     * // example output:
-     *
-     * array(8) {
-     *   ["publicPropertyAcceptsArray"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(5) "array"
-     *   }
-     *   ["publicPropertyAcceptsBool"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["publicPropertyAcceptsClosureOrNull"]=>
-     *   array(2) {
-     *     [0]=>
-     *     string(7) "Closure"
-     *     [1]=>
-     *     string(4) "null"
-     *   }
-     *   ["publicPropertyAcceptsFloat"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(5) "float"
-     *   }
-     *   ["publicPropertyAcceptsInt"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(3) "int"
-     *   }
-     *   ["publicPropertyAcceptsObjectOrNull"]=>
-     *   array(2) {
-     *     [0]=>
-     *     string(6) "object"
-     *     [1]=>
-     *     string(4) "null"
-     *   }
-     *   ["publicPropertyAcceptsObject"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(6) "object"
-     *   }
-     *   ["publicPropertyAcceptsString"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(6) "string"
-     *   }
-     * }
      *
      * ```
      */
@@ -965,71 +783,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(73) "tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
-     *
-     * $propertyTypes = [];
-     *
-     * $this->addParentPropertyTypesToArray(
-     *     $this->reflectionClass(),
-     *     $propertyTypes,
-     *     ReflectionMethod::IS_PRIVATE
-     * );
-     *
-     * var_dump($propertyTypes);
-     *
-     * array(8) {
-     *   ["classCExtendsClassBInheirtsFromClassAPrivateProperty"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["privatePropertySharedName"]=>
-     *   array(3) {
-     *     [0]=>
-     *     string(4) "bool"
-     *     [1]=>
-     *     string(6) "string"
-     *     [2]=>
-     *     string(3) "int"
-     *   }
-     *   ["privateStaticPropertySharedName"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["classBExtendsClassAPrivateProperty"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["classBExtendsClassAPrivateStaticProperty"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["classABaseClassPrivateProperty"]=>
-     *   array(2) {
-     *     [0]=>
-     *     string(5) "array"
-     *     [1]=>
-     *     string(4) "bool"
-     *   }
-     *   ["classABaseClassPrivateStaticProperty"]=>
-     *   array(2) {
-     *     [0]=>
-     *     string(3) "int"
-     *     [1]=>
-     *     string(4) "bool"
-     *   }
-     * }
      *
      * ```
      *
@@ -1078,22 +831,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(36) "tests\dev\mock\classes\PublicMethods"
-     *
-     * var_dump(
-     *     $this->reflectionMethod('publicMethodToReturnInt')
-     * );
-     *
-     * // example output:
-     * object(ReflectionMethod)#4 (2) {
-     *   ["name"]=>
-     *   string(23) "publicMethodToReturnInt"
-     *   ["class"]=>
-     *   string(36) "tests\dev\mock\classes\PublicMethods"
-     * }
      *
      * ```
      *
@@ -1117,10 +854,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * var_dump($this->reflectedClass()::class);
-     *
-     * // example output:
-     * string(36) "tests\dev\mock\classes\PublicMethods"
      *
      * ```
      *
@@ -1138,7 +871,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * $this->reflectionTestInstance();
      *
      * ```
      *
@@ -1161,13 +893,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * $this->setReflectionTestInstance(
-     *     new \Darling\PHPReflectionUtilities\classes\utilities\Reflection(
-     *         new \ReflectionClass(
-     *             $this->randomClassStringOrObjectInstance()
-     *         )
-     *     )
-     * );
      *
      * ```
      *
@@ -1199,16 +924,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * public function setUp(): void
-     * {
-     *     $class = $this->randomClassStringOrObjectInstance();
-     *     $this->setClassToBeReflected($class);
-     *     $this->setReflectionTestInstance(
-     *         new \Darling\PHPReflectionUtilities\classes\utilities\Reflection(
-     *             $this->reflectionClass($class)
-     *         )
-     *     );
-     * }
      *
      * ```
      *
@@ -1226,11 +941,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * // Using an object instance
-     * $this->setClassToBeReflected($this): void;
-     *
-     * // Using a class string
-     * $this->setClassToBeReflected($this::class): void;
      *
      * ```
      *
@@ -1252,11 +962,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * // Using a class string:
-     * $this->reflectionClass($this::class);
-     *
-     * // Using an object instance:
-     * $this->reflectionClass($this);
      *
      * ```
      *
@@ -1280,10 +985,6 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
-     * echo $this->randomMethodName();
-     *
-     * // example output:
-     * someMethodDefinedByTheReflectedClassOrObjectInstance
      *
      * ```
      *

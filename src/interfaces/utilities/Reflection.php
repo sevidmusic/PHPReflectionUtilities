@@ -2,9 +2,9 @@
 
 namespace Darling\PHPReflectionUtilities\interfaces\utilities;
 
+use Darling\PHPTextTypes\interfaces\strings\ClassString;
 use ReflectionException;
 use ReflectionMethod;
-use Darling\PHPTextTypes\interfaces\strings\ClassString;
 
 /**
  * A Reflection can be used to get information about a reflected
@@ -13,35 +13,29 @@ use Darling\PHPTextTypes\interfaces\strings\ClassString;
  * @example
  *
  * ```
- * var_dump($reflection->type());
+ * var_dump($reflection->type()->__toString());
  *
  * // example output:
- * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
- *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
- *   string(36) "tests\dev\mock\classes\PublicMethods"
- * }
+ * string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
  *
  * var_dump($reflection->methodNames(Reflection::IS_PUBLIC));
  *
  * // example output:
- *
- * array(8) {
+ * array(7) {
  *   [0]=>
- *   string(25) "publicMethodToReturnArray"
+ *   string(11) "__construct"
  *   [1]=>
- *   string(24) "publicMethodToReturnBool"
+ *   string(11) "methodNames"
  *   [2]=>
- *   string(27) "publicMethodToReturnClosure"
+ *   string(20) "methodParameterNames"
  *   [3]=>
- *   string(23) "publicMethodToReturnInt"
+ *   string(20) "methodParameterTypes"
  *   [4]=>
- *   string(25) "publicMethodToReturnFloat"
+ *   string(13) "propertyNames"
  *   [5]=>
- *   string(32) "publicMethodToReturnObjectOrNull"
+ *   string(13) "propertyTypes"
  *   [6]=>
- *   string(26) "publicMethodToReturnObject"
- *   [7]=>
- *   string(26) "publicMethodToReturnString"
+ *   string(4) "type"
  * }
  *
  * ```
@@ -59,6 +53,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_FINAL
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-final
      *
      */
     public const IS_FINAL = ReflectionMethod::IS_FINAL;
@@ -71,6 +66,7 @@ interface Reflection
      * the results of the methodNames() method.
      *
      * @see ReflectionMethod::IS_ABSTRACT
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-abstract
      *
      */
     public const IS_ABSTRACT = ReflectionMethod::IS_ABSTRACT;
@@ -84,6 +80,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_PRIVATE
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-private
      *
      */
     public const IS_PRIVATE = ReflectionMethod::IS_PRIVATE;
@@ -97,6 +94,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_PROTECTED
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-protected
      *
      */
     public const IS_PROTECTED = ReflectionMethod::IS_PROTECTED;
@@ -110,6 +108,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_PUBLIC
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-public
      *
      */
     public const IS_PUBLIC = ReflectionMethod::IS_PUBLIC;
@@ -123,6 +122,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_STATIC
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-static
      *
      */
     public const IS_STATIC = ReflectionMethod::IS_STATIC;
@@ -174,35 +174,29 @@ interface Reflection
      * @example
      *
      * ```
-     * var_dump($reflection->type());
+     * var_dump($reflection->type()->__toString());
      *
      * // example output:
-     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(36) "tests\dev\mock\classes\PublicMethods"
-     * }
+     * string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
      *
      * var_dump($reflection->methodNames(Reflection::IS_PUBLIC));
      *
      * // example output:
-     *
-     * array(8) {
+     * array(7) {
      *   [0]=>
-     *   string(25) "publicMethodToReturnArray"
+     *   string(11) "__construct"
      *   [1]=>
-     *   string(24) "publicMethodToReturnBool"
+     *   string(11) "methodNames"
      *   [2]=>
-     *   string(27) "publicMethodToReturnClosure"
+     *   string(20) "methodParameterNames"
      *   [3]=>
-     *   string(23) "publicMethodToReturnInt"
+     *   string(20) "methodParameterTypes"
      *   [4]=>
-     *   string(25) "publicMethodToReturnFloat"
+     *   string(13) "propertyNames"
      *   [5]=>
-     *   string(32) "publicMethodToReturnObjectOrNull"
+     *   string(13) "propertyTypes"
      *   [6]=>
-     *   string(26) "publicMethodToReturnObject"
-     *   [7]=>
-     *   string(26) "publicMethodToReturnString"
+     *   string(4) "type"
      * }
      *
      * ```
@@ -227,24 +221,17 @@ interface Reflection
      * @example
      *
      * ```
-     * var_dump($reflection->type());
+     * var_dump($reflection->type()->__toString());
      *
      * // example output:
-     * object(Darling\PHPTextTypes\classes\strings\ClassString)#5 (1) {
-     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(36) "tests\dev\mock\classes\PublicMethods"
-     * }
+     * string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
      *
-     * var_dump(
-     *     $reflection->methodParameterNames(
-     *         'publicMethodToReturnObjectOrNull'
-     *     )
-     * );
+     * var_dump($reflection->methodParameterNames('methodParameterNames'));
      *
      * // example output:
      * array(1) {
      *   [0]=>
-     *   string(28) "parameterAcceptsObjectOrNull"
+     *   string(6) "method"
      * }
      *
      * ```
@@ -268,26 +255,19 @@ interface Reflection
      * @example
      *
      * ```
-     * var_dump($reflection->type());
+     * var_dump($reflection->type()->__toString());
      *
      * // example output:
-     * object(Darling\PHPTextTypes\classes\strings\ClassString)#5 (1) {
-     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(36) "tests\dev\mock\classes\PublicMethods"
-     * }
+     * string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
      *
-     * var_dump(
-     *     $reflection->methodParameterTypes(
-     *         'publicMethodToReturnObjectOrNull'
-     *     )
-     * );
+     * var_dump($reflection->methodParameterTypes('methodParameterTypes'));
+     *
+     * // example output:
      * array(1) {
-     *   ["parameterAcceptsObjectOrNull"]=>
-     *   array(2) {
+     *   ["method"]=>
+     *   array(1) {
      *     [0]=>
-     *     string(6) "object"
-     *     [1]=>
-     *     string(4) "null"
+     *     string(6) "string"
      *   }
      * }
      *
@@ -341,34 +321,17 @@ interface Reflection
      * @example
      *
      * ```
-     * var_dump($reflection->type());
+     * var_dump($reflection->type()->__toString());
      *
      * // example output:
-     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(39) "tests\dev\mock\classes\PublicProperties"
-     * }
+     * string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
      *
-     * var_dump($reflection->propertyNames(Reflection::IS_PUBLIC));
+     * var_dump($reflection->propertyNames(Reflection::IS_PRIVATE));
      *
      * // example output:
-     * array(8) {
+     * array(1) {
      *   [0]=>
-     *   string(26) "publicPropertyAcceptsArray"
-     *   [1]=>
-     *   string(25) "publicPropertyAcceptsBool"
-     *   [2]=>
-     *   string(34) "publicPropertyAcceptsClosureOrNull"
-     *   [3]=>
-     *   string(26) "publicPropertyAcceptsFloat"
-     *   [4]=>
-     *   string(24) "publicPropertyAcceptsInt"
-     *   [5]=>
-     *   string(33) "publicPropertyAcceptsObjectOrNull"
-     *   [6]=>
-     *   string(27) "publicPropertyAcceptsObject"
-     *   [7]=>
-     *   string(27) "publicPropertyAcceptsString"
+     *   string(15) "reflectionClass"
      * }
      *
      * ```
@@ -433,62 +396,19 @@ interface Reflection
      * @example
      *
      * ```
-     * var_dump($reflection->type());
+     * var_dump($reflection->type()->__toString());
      *
      * // example output:
-     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
-     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(39) "tests\dev\mock\classes\PublicProperties"
-     * }
+     * string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
      *
-     * var_dump( $reflection->propertyTypes(Reflection::IS_PUBLIC));
+     * var_dump($reflection->propertyTypes(Reflection::IS_PRIVATE));
      *
      * // example output:
-     *
-     * array(8) {
-     *   ["publicPropertyAcceptsArray"]=>
+     * array(1) {
+     *   ["reflectionClass"]=>
      *   array(1) {
      *     [0]=>
-     *     string(5) "array"
-     *   }
-     *   ["publicPropertyAcceptsBool"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(4) "bool"
-     *   }
-     *   ["publicPropertyAcceptsClosureOrNull"]=>
-     *   array(2) {
-     *     [0]=>
-     *     string(7) "Closure"
-     *     [1]=>
-     *     string(4) "null"
-     *   }
-     *   ["publicPropertyAcceptsFloat"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(5) "float"
-     *   }
-     *   ["publicPropertyAcceptsInt"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(3) "int"
-     *   }
-     *   ["publicPropertyAcceptsObjectOrNull"]=>
-     *   array(2) {
-     *     [0]=>
-     *     string(6) "object"
-     *     [1]=>
-     *     string(4) "null"
-     *   }
-     *   ["publicPropertyAcceptsObject"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(6) "object"
-     *   }
-     *   ["publicPropertyAcceptsString"]=>
-     *   array(1) {
-     *     [0]=>
-     *     string(6) "string"
+     *     string(15) "ReflectionClass"
      *   }
      * }
      *
@@ -510,10 +430,14 @@ interface Reflection
      * // example output:
      * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
      *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(39) "tests\dev\mock\classes\PublicProperties"
+     *   string(59) "Darling\PHPReflectionUtilities\classes\utilities\Reflection"
      * }
      *
      * ```
+     *
+     * @see Darling\PHPTextTypes\interfaces\strings\ClassString
+     * @see https://github.com/sevidmusic/PHPTextTypes/blob/main/src/interfaces/strings/ClassString.php
+     * @see https://github.com/sevidmusic/PHPTextTypes/blob/main/src/classes/strings/ClassString.php
      *
      */
     public function type(): ClassString;
