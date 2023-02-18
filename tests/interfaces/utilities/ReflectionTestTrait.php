@@ -227,20 +227,25 @@ trait ReflectionTestTrait
      * );
      *
      * // example output
-     * string(36) "tests\dev\mock\classes\PublicMethods"
+     * string(42) "tests\dev\mock\classes\PublicStaticMethods"
      *
      * var_dump(
      *     $this->determineReflectedClassesMethodParameterTypes(
-     *         'publicMethodToReturnObjectOrNull'
+     *         'publicStaticMethodsMethodToReturnArray'
      *     )
      * );
      *
-     * // example output
-     * array(1) {
-     *   ["parameterAcceptsObjectOrNull"]=>
+     * // example output:
+     * array(2) {
+     *   ["parameterAcceptsArray"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["parameterAcceptsBoolOrNull"]=>
      *   array(2) {
      *     [0]=>
-     *     string(6) "object"
+     *     string(4) "bool"
      *     [1]=>
      *     string(4) "null"
      *   }
@@ -249,7 +254,7 @@ trait ReflectionTestTrait
      * ```
      *
      * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
-     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicStaticMethods.php
      *
      */
     protected function determineReflectedClassesMethodParameterTypes(
