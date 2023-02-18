@@ -86,8 +86,33 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class :
+     *     $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     *
+     * var_dump($this->determineReflectedClassesMethodNames());
+     *
+     * // example output:
+     * array(4) {
+     *   [0]=>
+     *   string(32) "classBExtendsClassAPrivateMethod"
+     *   [1]=>
+     *   string(38) "classBExtendsClassAPrivateStaticMethod"
+     *   [2]=>
+     *   string(23) "privateMethodSharedName"
+     *   [3]=>
+     *   string(29) "privateStaticMethodSharedName"
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassBExtendsClassA.php
      *
      */
     protected function determineReflectedClassesMethodNames(
@@ -126,8 +151,31 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class :
+     *     $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(36) "tests\dev\mock\classes\PublicMethods"
+     *
+     * var_dump(
+     *     $this->determineReflectedClassesMethodParameterNames(
+     *         'publicMethodToReturnFloat'
+     *     )
+     * );
+     *
+     * // example output:
+     * array(1) {
+     *   [0]=>
+     *   string(21) "parameterAcceptsFloat"
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     protected function determineReflectedClassesMethodParameterNames(
@@ -172,8 +220,36 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class :
+     *     $this->reflectedClass()
+     * );
+     *
+     * // example output
+     * string(36) "tests\dev\mock\classes\PublicMethods"
+     *
+     * var_dump(
+     *     $this->determineReflectedClassesMethodParameterTypes(
+     *         'publicMethodToReturnObjectOrNull'
+     *     )
+     * );
+     *
+     * // example output
+     * array(1) {
+     *   ["parameterAcceptsObjectOrNull"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(6) "object"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     protected function determineReflectedClassesMethodParameterTypes(
