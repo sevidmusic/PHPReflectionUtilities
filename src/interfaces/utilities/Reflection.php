@@ -53,6 +53,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_FINAL
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-final
      *
      */
     public const IS_FINAL = ReflectionMethod::IS_FINAL;
@@ -65,6 +66,7 @@ interface Reflection
      * the results of the methodNames() method.
      *
      * @see ReflectionMethod::IS_ABSTRACT
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-abstract
      *
      */
     public const IS_ABSTRACT = ReflectionMethod::IS_ABSTRACT;
@@ -78,6 +80,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_PRIVATE
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-private
      *
      */
     public const IS_PRIVATE = ReflectionMethod::IS_PRIVATE;
@@ -91,6 +94,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_PROTECTED
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-protected
      *
      */
     public const IS_PROTECTED = ReflectionMethod::IS_PROTECTED;
@@ -104,6 +108,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_PUBLIC
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-public
      *
      */
     public const IS_PUBLIC = ReflectionMethod::IS_PUBLIC;
@@ -117,6 +122,7 @@ interface Reflection
      * propertyTypes() methods.
      *
      * @see ReflectionMethod::IS_STATIC
+     * @see https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.constants.is-static
      *
      */
     public const IS_STATIC = ReflectionMethod::IS_STATIC;
@@ -428,6 +434,10 @@ interface Reflection
      * }
      *
      * ```
+     *
+     * @see Darling\PHPTextTypes\interfaces\strings\ClassString
+     * @see https://github.com/sevidmusic/PHPTextTypes/blob/main/src/interfaces/strings/ClassString.php
+     * @see https://github.com/sevidmusic/PHPTextTypes/blob/main/src/classes/strings/ClassString.php
      *
      */
     public function type(): ClassString;

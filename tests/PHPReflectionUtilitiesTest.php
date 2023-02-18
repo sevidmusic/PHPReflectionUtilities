@@ -2,10 +2,10 @@
 
 namespace tests;
 
-use PHPUnit\Framework\TestCase;
 use Darling\PHPUnitTestUtilities\traits\PHPUnitConfigurationTests;
-use Darling\PHPUnitTestUtilities\traits\PHPUnitTestMessages;
 use Darling\PHPUnitTestUtilities\traits\PHPUnitRandomValues;
+use Darling\PHPUnitTestUtilities\traits\PHPUnitTestMessages;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Defines common methods that may be useful to all
