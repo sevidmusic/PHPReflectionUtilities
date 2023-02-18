@@ -31,7 +31,35 @@ These classes can be used as is, or extended.
 
 ### [Darling\PHPReflectionUtilities\classes\utilities\Reflection](https://github.com/sevidmusic/PHPReflectionUtilities/blob/main/src/classes/utilities/Reflection.php)
 
+ A Reflection can be used to get information about a reflected class
+ or object instance.
+
+ For example:
+
 ```
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
+
+$class = Reflection::class;
+
+$reflection = new Reflection(new \ReflectionClass($class));
+
+var_dump($reflection->type()->__toString());
+
+var_dump($reflection->methodNames(Reflection::IS_PUBLIC));
+
+var_dump($reflection->methodParameterNames('methodParameterNames'));
+
+var_dump($reflection->methodParameterTypes('methodParameterTypes'));
+
+var_dump($reflection->propertyNames(Reflection::IS_PRIVATE));
+
+var_dump($reflection->propertyTypes(Reflection::IS_PRIVATE));
+
+var_dump($reflection->type());
 
 ```
 
