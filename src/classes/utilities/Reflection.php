@@ -310,6 +310,8 @@ class Reflection implements ReflectionInterface
      *
      * ```
      *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassDExtendsClassCInheirtsFromClassBAndFromClassA.php
+     *
      */
     private function addParentPropertyTypesToArray(
         ReflectionClass $reflectionClass,
@@ -453,6 +455,8 @@ class Reflection implements ReflectionInterface
      *
      * ```
      *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassDExtendsClassCInheirtsFromClassBAndFromClassA.php
+     *
      */
     private function addParentPropertyNamesToArray(
         ReflectionClass $reflectionClass,
@@ -502,6 +506,8 @@ class Reflection implements ReflectionInterface
      * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     protected function reflectionMethod(
@@ -605,6 +611,8 @@ class Reflection implements ReflectionInterface
      * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassDExtendsClassCInheirtsFromClassBAndFromClassA.php
      *
      */
     private function addUnionTypesToArray(
@@ -725,6 +733,8 @@ class Reflection implements ReflectionInterface
      *
      * ```
      *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassDExtendsClassCInheirtsFromClassBAndFromClassA.php
+     *
      */
     private function addNamedTypeToArray(
         ReflectionProperty|ReflectionParameter $parameterOrProperty,
@@ -758,6 +768,8 @@ class Reflection implements ReflectionInterface
      * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     protected function reflectionClass(): ReflectionClass

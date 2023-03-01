@@ -2,13 +2,13 @@
 
 namespace tests\interfaces\utilities;
 
+use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
 use \ReflectionClass;
 use \ReflectionMethod;
 use \ReflectionNamedType;
 use \ReflectionParameter;
 use \ReflectionProperty;
 use \ReflectionUnionType;
-use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
 
 /**
  * The ReflectionTestTrait defines common tests for implementations
@@ -88,31 +88,41 @@ trait ReflectionTestTrait
      * ```
      * var_dump(
      *     is_object($this->reflectedClass())
-     *     ? $this->reflectedClass()::class :
-     *     $this->reflectedClass()
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
      * );
      *
      * // example output:
-     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     * string(45) "tests\dev\mock\classes\ProtectedStaticMethods"
      *
-     * var_dump($this->determineReflectedClassesMethodNames());
+     * $this->determineReflectedClassesMethodNames(
+     *     \ReflectionMethod::IS_STATIC
+     * );
      *
      * // example output:
-     * array(4) {
+     * array(8) {
      *   [0]=>
-     *   string(32) "classBExtendsClassAPrivateMethod"
+     *   string(41) "protectedStaticMethodsMethodToReturnArray"
      *   [1]=>
-     *   string(38) "classBExtendsClassAPrivateStaticMethod"
+     *   string(40) "protectedStaticMethodsMethodToReturnBool"
      *   [2]=>
-     *   string(23) "privateMethodSharedName"
+     *   string(43) "protectedStaticMethodsMethodToReturnClosure"
      *   [3]=>
-     *   string(29) "privateStaticMethodSharedName"
+     *   string(39) "protectedStaticMethodsMethodToReturnInt"
+     *   [4]=>
+     *   string(41) "protectedStaticMethodsMethodToReturnFloat"
+     *   [5]=>
+     *   string(50) "protectedStaticMethodsMethodToReturnNullableObject"
+     *   [6]=>
+     *   string(42) "protectedStaticMethodsMethodToReturnObject"
+     *   [7]=>
+     *   string(42) "protectedStaticMethodsMethodToReturnString"
      * }
      *
      * ```
      *
      * @see https://github.com/sevidmusic/PHPUnitTestUtilities
-     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassBExtendsClassA.php
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ProtectedStaticMethods.php
      *
      */
     protected function determineReflectedClassesMethodNames(
@@ -227,20 +237,25 @@ trait ReflectionTestTrait
      * );
      *
      * // example output
-     * string(36) "tests\dev\mock\classes\PublicMethods"
+     * string(42) "tests\dev\mock\classes\PublicStaticMethods"
      *
      * var_dump(
      *     $this->determineReflectedClassesMethodParameterTypes(
-     *         'publicMethodToReturnObjectOrNull'
+     *         'publicStaticMethodsMethodToReturnArray'
      *     )
      * );
      *
-     * // example output
-     * array(1) {
-     *   ["parameterAcceptsObjectOrNull"]=>
+     * // example output:
+     * array(2) {
+     *   ["parameterAcceptsArray"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["parameterAcceptsBoolOrNull"]=>
      *   array(2) {
      *     [0]=>
-     *     string(6) "object"
+     *     string(4) "bool"
      *     [1]=>
      *     string(4) "null"
      *   }
@@ -249,7 +264,7 @@ trait ReflectionTestTrait
      * ```
      *
      * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
-     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicStaticMethods.php
      *
      */
     protected function determineReflectedClassesMethodParameterTypes(
@@ -338,8 +353,59 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(38) "tests\dev\mock\classes\ClassABaseClass"
+     *
+     * var_dump($parameterOrProperty);
+     *
+     * // example output:
+     * object(ReflectionProperty)#355 (2) {
+     *   ["name"]=>
+     *   string(29) "classABaseClassPublicProperty"
+     *   ["class"]=>
+     *   string(38) "tests\dev\mock\classes\ClassABaseClass"
+     * }
+     *
+     * var_dump($types);
+     *
+     * // example output:
+     * array(0) {
+     * }
+     *
+     * var_dump($reflectionUnionType);
+     *
+     * // example output:
+     * object(ReflectionUnionType)#360 (0) {
+     * }
+     *
+     * $this->addUnionTypesToArray(
+     *     $parameterOrProperty,
+     *     $types,
+     *     $reflectionUnionType
+     * );
+     *
+     * var_dump($types);
+     *
+     * // example output:
+     * array(1) {
+     *   ["classABaseClassPublicProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "bool"
+     *   }
+     * }
      *
      * ```
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassABaseClass.php
      *
      */
     private function addUnionTypesToArray(
@@ -357,7 +423,6 @@ trait ReflectionTestTrait
                 array_unique(
                     $types[$parameterOrProperty->getName()]
                 );
-
         }
         if(
             !in_array(
@@ -424,8 +489,56 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(36) "tests\dev\mock\classes\PublicMethods"
+     *
+     * var_dump($parameterOrProperty);
+     *
+     * // example output:
+     * object(ReflectionParameter)#358 (1) {
+     *   ["name"]=>
+     *   string(22) "parameterAcceptsString"
+     * }
+     *
+     * var_dump($types);
+     *
+     * // example output:
+     * array(0) {
+     * }
+     *
+     * var_dump($reflectionNamedType);
+     *
+     * // example output:
+     * object(ReflectionNamedType)#364 (0) {
+     * }
+     *
+     * $this->addNamedTypeToArray(
+     *     $parameterOrProperty,
+     *     $types,
+     *     $reflectionNamedType
+     * ;
+     *
+     * var_dump($types);
+     *
+     * // example output:
+     * array(1) {
+     *   ["parameterAcceptsString"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "string"
+     *   }
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
      *
      */
     private function addNamedTypeToArray(
@@ -489,8 +602,44 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(45) "tests\dev\mock\classes\PublicStaticProperties"
+     *
+     * var_dump(
+     *     $this->determineReflectedClassesPropertyNames(
+     *         \ReflectionMethod::IS_STATIC
+     *     )
+     * );
+     *
+     * array(8) {
+     *   [0]=>
+     *   string(34) "publicStaticPropertiesPrivateArray"
+     *   [1]=>
+     *   string(33) "publicStaticPropertiesPrivateBool"
+     *   [2]=>
+     *   string(36) "publicStaticPropertiesPrivateClosure"
+     *   [3]=>
+     *   string(34) "publicStaticPropertiesPrivateFloat"
+     *   [4]=>
+     *   string(32) "publicStaticPropertiesPrivateInt"
+     *   [5]=>
+     *   string(43) "publicStaticPropertiesPrivateNullableObject"
+     *   [6]=>
+     *   string(35) "publicStaticPropertiesPrivateObject"
+     *   [7]=>
+     *   string(35) "publicStaticPropertiesPrivateString"
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicStaticProperties.php
      *
      */
     protected function determineReflectedClassesPropertyNames(
@@ -586,8 +735,82 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(60) "tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
+     *
+     * var_dump($reflectionClass);
+     *
+     * // example output:
+     * object(ReflectionClass)#344 (1) {
+     *   ["name"]=>
+     *   string(60) "tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
+     * }
+     *
+     * var_dump($propertyNames);
+     *
+     * // example output:
+     * array(4) {
+     *   [0]=>
+     *   string(52) "classCExtendsClassBInheirtsFromClassAPrivateProperty"
+     *   [1]=>
+     *   string(58) "classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"
+     *   [2]=>
+     *   string(25) "privatePropertySharedName"
+     *   [3]=>
+     *   string(31) "privateStaticPropertySharedName"
+     * }
+     *
+     * var_dump($filter);
+     *
+     * // example output:
+     * int(4) // === \ReflectionMethod::IS_PRIVATE
+     *
+     * $this->addParentPropertyNamesToArray(
+     *     $reflectionClass,
+     *     $propertyNames,
+     *     $filter
+     * );
+     *
+     * var_dump($propertyNames);
+     *
+     * // example output:
+     * array(12) {
+     *   [0]=>
+     *   string(52) "classCExtendsClassBInheirtsFromClassAPrivateProperty"
+     *   [1]=>
+     *   string(58) "classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"
+     *   [2]=>
+     *   string(25) "privatePropertySharedName"
+     *   [3]=>
+     *   string(31) "privateStaticPropertySharedName"
+     *   [4]=>
+     *   string(34) "classBExtendsClassAPrivateProperty"
+     *   [5]=>
+     *   string(40) "classBExtendsClassAPrivateStaticProperty"
+     *   [6]=>
+     *   string(25) "privatePropertySharedName"
+     *   [7]=>
+     *   string(31) "privateStaticPropertySharedName"
+     *   [8]=>
+     *   string(30) "classABaseClassPrivateProperty"
+     *   [9]=>
+     *   string(36) "classABaseClassPrivateStaticProperty"
+     *   [10]=>
+     *   string(25) "privatePropertySharedName"
+     *   [11]=>
+     *   string(31) "privateStaticPropertySharedName"
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassCExtendsClassBInheirtsFromClassA.php
      *
      */
     private function addParentPropertyNamesToArray(
@@ -602,6 +825,7 @@ trait ReflectionTestTrait
             }
             $reflectionClass = $parent;
         }
+
     }
 
     /**
@@ -663,8 +887,73 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(46) "tests\dev\mock\classes\PrivateStaticProperties"
+     *
+     * var_dump(
+     *     $this->addParentPropertyNamesToArray(
+     *         \ReflectionMethod::IS_PRIVATE
+     *     )
+     * );
+     *
+     * // example output:
+     * array(8) {
+     *   ["privateStaticPropertiesPrivateArray"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["privateStaticPropertiesPrivateBool"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateStaticPropertiesPrivateClosure"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateStaticPropertiesPrivateFloat"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["privateStaticPropertiesPrivateInt"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["privateStaticPropertiesPrivateNullableObject"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(6) "object"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateStaticPropertiesPrivateObject"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     *   ["privateStaticPropertiesPrivateString"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "string"
+     *   }
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PrivateStaticProperties.php
      */
     protected function determineReflectedClassesPropertyTypes(int $filter = null): array
     {
@@ -783,8 +1072,363 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($reflectionClass);
+     *
+     * // example output:
+     * object(ReflectionClass)#356 (1) {
+     *   ["name"]=>
+     *   string(41) "tests\dev\mock\classes\ReflectedBaseClass"
+     * }
+     *
+     * var_dump($propertyTypes);
+     *
+     * array(19) {
+     *   ["reflectedBaseFoo"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "string"
+     *   }
+     *   ["privateNullableProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateClosureProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *   }
+     *   ["privateArrayProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["privateBoolProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateFloatProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["privateIntProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["privateUnionTypeProperty"]=>
+     *   array(3) {
+     *     [0]=>
+     *     string(6) "string"
+     *     [1]=>
+     *     string(3) "int"
+     *     [2]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateMixedProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(5) "mixed"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateObjectProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     *   ["privateStaticNullableProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateStaticClosureProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *   }
+     *   ["privateStaticArrayProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["privateStaticBoolProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateStaticFloatProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["privateStaticIntProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["privateStaticUnionTypeProperty"]=>
+     *   array(3) {
+     *     [0]=>
+     *     string(6) "string"
+     *     [1]=>
+     *     string(3) "int"
+     *     [2]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateStaticMixedProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(5) "mixed"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateStaticObjectProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     * }
+     *
+     * $this->addParentPropertyTypesToArray(
+     *     $reflectionClass,
+     *     $propertyTypes,
+     *     \ReflectionMethod::IS_PRIVATE
+     * );
+     *
+     * var_dump($propertyTypes);
+     *
+     * // example output:
+     * array(37) {
+     *   ["reflectedBaseFoo"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "string"
+     *   }
+     *   ["privateNullableProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateClosureProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *   }
+     *   ["privateArrayProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["privateBoolProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateFloatProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["privateIntProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["privateUnionTypeProperty"]=>
+     *   array(3) {
+     *     [0]=>
+     *     string(6) "string"
+     *     [1]=>
+     *     string(3) "int"
+     *     [2]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateMixedProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(5) "mixed"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateObjectProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     *   ["privateStaticNullableProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateStaticClosureProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *   }
+     *   ["privateStaticArrayProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["privateStaticBoolProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateStaticFloatProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["privateStaticIntProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["privateStaticUnionTypeProperty"]=>
+     *   array(3) {
+     *     [0]=>
+     *     string(6) "string"
+     *     [1]=>
+     *     string(3) "int"
+     *     [2]=>
+     *     string(4) "bool"
+     *   }
+     *   ["privateStaticMixedProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(5) "mixed"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["privateStaticObjectProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     *   ["parentPrivateNullableProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["parentPrivateClosureProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *   }
+     *   ["parentPrivateArrayProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["parentPrivateBoolProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["parentPrivateFloatProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["parentPrivateIntProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["parentPrivateUnionTypeProperty"]=>
+     *   array(3) {
+     *     [0]=>
+     *     string(6) "string"
+     *     [1]=>
+     *     string(3) "int"
+     *     [2]=>
+     *     string(4) "bool"
+     *   }
+     *   ["parentPrivateMixedProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(5) "mixed"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["parentPrivateObjectProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     *   ["parentPrivateStaticNullableProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(3) "int"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["parentPrivateStaticClosureProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(7) "Closure"
+     *   }
+     *   ["parentPrivateStaticArrayProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "array"
+     *   }
+     *   ["parentPrivateStaticBoolProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(4) "bool"
+     *   }
+     *   ["parentPrivateStaticFloatProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(5) "float"
+     *   }
+     *   ["parentPrivateStaticIntProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(3) "int"
+     *   }
+     *   ["parentPrivateStaticUnionTypeProperty"]=>
+     *   array(3) {
+     *     [0]=>
+     *     string(6) "string"
+     *     [1]=>
+     *     string(3) "int"
+     *     [2]=>
+     *     string(4) "bool"
+     *   }
+     *   ["parentPrivateStaticMixedProperty"]=>
+     *   array(2) {
+     *     [0]=>
+     *     string(5) "mixed"
+     *     [1]=>
+     *     string(4) "null"
+     *   }
+     *   ["parentPrivateStaticObjectProperty"]=>
+     *   array(1) {
+     *     [0]=>
+     *     string(6) "object"
+     *   }
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ReflectedBaseClass.php
      *
      */
     private function addParentPropertyTypesToArray(
@@ -831,8 +1475,30 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     *
+     * var_dump(
+     *     $this->reflectionMethod('classBExtendsClassAPrivateMethod')
+     * );
+     *
+     * // example output:
+     * object(ReflectionMethod)#344 (2) {
+     *   ["name"]=>
+     *   string(32) "classBExtendsClassAPrivateMethod"
+     *   ["class"]=>
+     *   string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassBExtendsClassA.php
      *
      */
     private function reflectionMethod(
@@ -854,8 +1520,19 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassBExtendsClassA.php
      *
      */
     public function reflectedClass(): string|object
@@ -871,8 +1548,19 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($this->reflectionTestInstance());
+     *
+     * object(Darling\PHPReflectionUtilities\classes\utilities\Reflection)#345 (1) {
+     *   ["reflectionClass":"Darling\PHPReflectionUtilities\classes\utilities\Reflection":private]=>
+     *   object(ReflectionClass)#344 (1) {
+     *     ["name"]=>
+     *     string(45) "tests\dev\mock\classes\PublicStaticProperties"
+     *   }
+     * }
      *
      * ```
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicStaticProperties.php
      *
      */
     protected function reflectionTestInstance(): Reflection
@@ -893,8 +1581,17 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * $this->setReflectionTestInstance(
+     *     new \Darling\PHPReflectionUtilities\interfaces\utilities\Reflection(
+     *         new \ReflectionClass(
+     *             \Darling\PHPReflectionUtilities\interfaces\utilities\Reflection::class
+     *         )
+     *     );
+     * );
      *
      * ```
+     *
+     * @see https://www.php.net/manual/en/class.reflectionclass.php
      *
      */
     protected function setReflectionTestInstance(
@@ -924,6 +1621,16 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * protected function setUp(): void
+     * {
+     *     $class = $this->randomClassStringOrObjectInstance();
+     *     $this->setClassToBeReflected($class);
+     *     $this->setReflectionTestInstance(
+     *         new Reflection(
+     *             $this->reflectionClass($class)
+     *         )
+     *     );
+     * }
      *
      * ```
      *
@@ -941,6 +1648,9 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * $this->setClassToBeReflected(
+     *     $this->randomClassStringOrObjectInstance()
+     * );
      *
      * ```
      *
@@ -962,8 +1672,23 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($class);
+     * object(tests\dev\mock\classes\ProtectedMethods)#366 (0) {
+     * }
+     *
+     * var_dump($this->reflectionClass($class));
+     *
+     * // example output:
+     * object(ReflectionClass)#356 (1) {
+     *   ["name"]=>
+     *   string(39) "tests\dev\mock\classes\ProtectedMethods"
+     * }
      *
      * ```
+     *
+     * @see https://www.php.net/manual/en/class.reflectionclass.php
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ProtectedMethods.php
      *
      */
     protected function reflectionClass(
@@ -985,8 +1710,24 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(46) "tests\dev\mock\classes\PrivateStaticProperties"
+     *
+     * var_dump($this->randomMethodName());
+     *
+     * // example output:
+     * string(38) "getPrivateStaticPropertiesPrivateArray"
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PrivateStaticProperties.php
      *
      */
     protected function randomMethodName(): string
