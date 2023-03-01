@@ -106,8 +106,23 @@ trait ObjectReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($this->objectReflectionTestInstance());
+     *
+     * // example output:
+     * object(Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection)#354 (2) {
+     *   ["reflectionClass":"Darling\PHPReflectionUtilities\classes\utilities\Reflection":private]=>
+     *   object(ReflectionClass)#353 (1) {
+     *     ["name"]=>
+     *     string(37) "tests\dev\mock\classes\PrivateMethods"
+     *   }
+     *   ["object":"Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection":private]=>
+     *   object(tests\dev\mock\classes\PrivateMethods)#370 (0) {
+     *   }
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PrivateMethods.php
      *
      */
     protected function objectReflectionTestInstance(): ObjectReflection
@@ -125,7 +140,51 @@ trait ObjectReflectionTestTrait
      *
      * ```
      *
+     * var_dump($this->reflectedObject());
+     *
+     * // example output:
+     * object(tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA)#371 (18) {
+     *   ["classABaseClassPrivateProperty":"tests\dev\mock\classes\ClassABaseClass":private]=>
+     *   bool(true)
+     *   ["classABaseClassProtectedProperty":protected]=>
+     *   bool(false)
+     *   ["classABaseClassPublicProperty"]=>
+     *   bool(true)
+     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassABaseClass":private]=>
+     *   bool(true)
+     *   ["protectedPropertySharedName":protected]=>
+     *   bool(true)
+     *   ["publicPropertySharedName"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAPrivateProperty":"tests\dev\mock\classes\ClassBExtendsClassA":private]=>
+     *   bool(true)
+     *   ["classBExtendsClassAProtectedProperty":protected]=>
+     *   bool(false)
+     *   ["classBExtendsClassAPublicProperty"]=>
+     *   bool(true)
+     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassBExtendsClassA":private]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAPrivateProperty":"tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA":private]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAProtectedProperty":protected]=>
+     *   bool(false)
+     *   ["classCExtendsClassBInheirtsFromClassAPublicProperty"]=>
+     *   bool(true)
+     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA":private]=>
+     *   bool(true)
+     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPrivateProperty":"tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA":private]=>
+     *   bool(true)
+     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAProtectedProperty":protected]=>
+     *   bool(false)
+     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPublicProperty"]=>
+     *   NULL
+     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA":private]=>
+     *   bool(true)
+     * }
+     *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassDExtendsClassCInheirtsFromClassBAndFromClassA.php
      *
      */
     private function reflectedObject(): object
@@ -146,8 +205,46 @@ trait ObjectReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($this->reflectionTestInstance()->type());
+     *
+     * // example output:
+     *  object(Darling\PHPTextTypes\classes\strings\ClassString)#365 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
+     *   string(39) "tests\dev\mock\classes\PublicProperties"
+     * }
+     *
+     * var_dump($this->determineReflectedClassesPropertyValues());
+     *
+     * // example output:
+     * array(8) {
+     *   ["publicPropertyAcceptsArray"]=>
+     *   array(3) {
+     *     [0]=>
+     *     int(0)
+     *     [1]=>
+     *     int(1)
+     *     [2]=>
+     *     int(2)
+     *   }
+     *   ["publicPropertyAcceptsBool"]=>
+     *   bool(true)
+     *   ["publicPropertyAcceptsClosureOrNull"]=>
+     *   NULL
+     *   ["publicPropertyAcceptsFloat"]=>
+     *   float(0)
+     *   ["publicPropertyAcceptsInt"]=>
+     *   int(0)
+     *   ["publicPropertyAcceptsObjectOrNull"]=>
+     *   NULL
+     *   ["publicPropertyAcceptsObject"]=>
+     *   NULL
+     *   ["publicPropertyAcceptsString"]=>
+     *   string(11) "Foo Bar Baz"
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicProperties.php
      *
      */
     protected function determineReflectedClassesPropertyValues(): array
@@ -160,12 +257,10 @@ trait ObjectReflectionTestTrait
         foreach ($properties as $property) {
             $this->addPropertyValueToArray(
                 $property,
-                $this->reflectedObject(),
                 $propertyValues
             );
         }
         $this->addParentPropertyValuesToArray(
-            $this->reflectedObject(),
             $propertyValues
         );
         return $propertyValues;
@@ -194,22 +289,131 @@ trait ObjectReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($this->reflectionTestInstance()->type());
+     *
+     * // example output:
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#351 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
+     *   string(60) "tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
+     * }
+     *
+     * var_dump($propertyValues);
+     *
+     * // example output:
+     * array(20) {
+     *   ["classCExtendsClassBInheirtsFromClassAPrivateProperty"]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAProtectedProperty"]=>
+     *   bool(false)
+     *   ["classCExtendsClassBInheirtsFromClassAPublicProperty"]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAProtectedStaticProperty"]=>
+     *   bool(false)
+     *   ["classCExtendsClassBInheirtsFromClassAPublicStaticProperty"]=>
+     *   bool(true)
+     *   ["privatePropertySharedName"]=>
+     *   bool(true)
+     *   ["protectedPropertySharedName"]=>
+     *   bool(true)
+     *   ["publicPropertySharedName"]=>
+     *   bool(true)
+     *   ["privateStaticPropertySharedName"]=>
+     *   bool(true)
+     *   ["protectedStaticPropertySharedName"]=>
+     *   bool(true)
+     *   ["publicStaticPropertySharedName"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAProtectedProperty"]=>
+     *   bool(false)
+     *   ["classBExtendsClassAPublicProperty"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAProtectedStaticProperty"]=>
+     *   bool(false)
+     *   ["classBExtendsClassAPublicStaticProperty"]=>
+     *   bool(true)
+     *   ["classABaseClassProtectedProperty"]=>
+     *   bool(false)
+     *   ["classABaseClassPublicProperty"]=>
+     *   bool(true)
+     *   ["classABaseClassProtectedStaticProperty"]=>
+     *   bool(false)
+     *   ["classABaseClassPublicStaticProperty"]=>
+     *   bool(true)
+     * }
+     *
+     * $this->addParentPropertyValuesToArray($propertyValues);
+     *
+     * var_dump($propertyValues);
+     *
+     * // example output:
+     * array(24) {
+     *   ["classCExtendsClassBInheirtsFromClassAPrivateProperty"]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAProtectedProperty"]=>
+     *   bool(false)
+     *   ["classCExtendsClassBInheirtsFromClassAPublicProperty"]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"]=>
+     *   bool(true)
+     *   ["classCExtendsClassBInheirtsFromClassAProtectedStaticProperty"]=>
+     *   bool(false)
+     *   ["classCExtendsClassBInheirtsFromClassAPublicStaticProperty"]=>
+     *   bool(true)
+     *   ["privatePropertySharedName"]=>
+     *   bool(true)
+     *   ["protectedPropertySharedName"]=>
+     *   bool(true)
+     *   ["publicPropertySharedName"]=>
+     *   bool(true)
+     *   ["privateStaticPropertySharedName"]=>
+     *   bool(true)
+     *   ["protectedStaticPropertySharedName"]=>
+     *   bool(true)
+     *   ["publicStaticPropertySharedName"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAProtectedProperty"]=>
+     *   bool(false)
+     *   ["classBExtendsClassAPublicProperty"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAProtectedStaticProperty"]=>
+     *   bool(false)
+     *   ["classBExtendsClassAPublicStaticProperty"]=>
+     *   bool(true)
+     *   ["classABaseClassProtectedProperty"]=>
+     *   bool(false)
+     *   ["classABaseClassPublicProperty"]=>
+     *   bool(true)
+     *   ["classABaseClassProtectedStaticProperty"]=>
+     *   bool(false)
+     *   ["classABaseClassPublicStaticProperty"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAPrivateProperty"]=>
+     *   bool(true)
+     *   ["classBExtendsClassAPrivateStaticProperty"]=>
+     *   bool(true)
+     *   ["classABaseClassPrivateProperty"]=>
+     *   bool(true)
+     *   ["classABaseClassPrivateStaticProperty"]=>
+     *   bool(true)
+     * }
      *
      * ```
      *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassCExtendsClassBInheirtsFromClassA.php
+     *
      */
     private function addParentPropertyValuesToArray(
-        object $object,
         array &$propertyValues
     ): void
     {
-        $reflectionClass = $this->reflectionClass($object);
+        $reflectionClass = $this->reflectionClass($this->reflectedObject());
         while($parent = $reflectionClass->getParentClass()) {
             foreach($parent->getProperties() as $property) {
                 if(!isset($propertyValues[$property->getName()])) {
                     $this->addPropertyValueToArray(
                         $property,
-                        $object,
                         $propertyValues
                     );
                 }
@@ -230,9 +434,6 @@ trait ObjectReflectionTestTrait
      *                                     reflects the target
      *                                     property.
      *
-     * @param object $object The object instance that defined the
-     *                       property.
-     *
      * @param array<string, mixed> $propertyValues The array to add
      *                                             the property's
      *                                             value to.
@@ -242,20 +443,49 @@ trait ObjectReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($property);
+     *
+     * // example output:
+     * object(ReflectionProperty)#357 (2) {
+     *   ["name"]=>
+     *   string(22) "reflectedClassProperty"
+     *   ["class"]=>
+     *   string(37) "tests\dev\mock\classes\ReflectedClass"
+     * }
+     *
+     * var_dump($propertyValues);
+     *
+     * // example output:
+     * array(0) {
+     * }
+     *
+     * $this->addPropertyValueToArray(
+     *     $property,
+     *     $propertyValues
+     * );
+     *
+     * var_dump($propertyValues);
+     *
+     * // example output:
+     * array(1) {
+     *   ["reflectedClassProperty"]=>
+     *   string(19) "Foo bar bazz bazzer"
+     * }
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ReflectedClass.php
      *
      */
     private function addPropertyValueToArray(
         ReflectionProperty $property,
-        object $object,
         array &$propertyValues
     ): void
     {
-        if($property->isInitialized($object)) {
+        if($property->isInitialized($this->reflectedObject())) {
             $property->setAccessible(true);
             $propertyValues[$property->getName()] =
-                $property->getValue($object);
+                $property->getValue($this->reflectedObject());
         } else{
             $propertyValues[$property->getName()] =
                 null;
@@ -276,6 +506,11 @@ trait ObjectReflectionTestTrait
      * @example
      *
      * ```
+     * $this->setObjectReflectionTestInstance(
+     *     new \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection(
+     *         new \stdClass()
+     *     )
+     * );
      *
      * ```
      *

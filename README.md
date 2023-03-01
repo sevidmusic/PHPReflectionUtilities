@@ -43,9 +43,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
 
-$class = Reflection::class;
-
-$reflection = new Reflection(new \ReflectionClass($class));
+$reflection = new Reflection(new \ReflectionClass(Reflection::class));
 
 var_dump($reflection->type()->__toString());
 
