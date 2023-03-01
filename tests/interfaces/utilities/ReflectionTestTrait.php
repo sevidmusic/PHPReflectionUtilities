@@ -1746,6 +1746,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::type()
+     *
      */
     public function test_type_returns_type_of_reflected_class(): void
     {
@@ -1771,6 +1773,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
+     *
      */
     public function test_methodNames_returns_the_names_of_all_the_methods_defined_by_the_reflected_class_if_no_filter_is_specified(): void
     {
@@ -1794,6 +1798,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
      *
      */
     public function test_methodNames_returns_the_names_of_the_abstract_methods_defined_by_the_reflected_class_if_the_ReflectionIS_ABSTRACT_filter_is_specified(): void
@@ -1830,6 +1836,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
+     *
      */
     public function test_methodNames_returns_the_names_of_the_final_methods_defined_by_the_reflected_class_if_the_ReflectionIS_FINAL_filter_is_specified(): void
     {
@@ -1863,6 +1871,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
      *
      */
     public function test_methodNames_returns_the_names_of_the_private_methods_defined_by_the_reflected_class_if_the_ReflectionIS_PRIVATE_filter_is_specified(): void
@@ -1898,6 +1908,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
      *
      */
     public function test_methodNames_returns_the_names_of_the_protected_methods_defined_by_the_reflected_class_if_the_ReflectionIS_PROTECTED_filter_is_specified(): void
@@ -1935,6 +1947,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
+     *
      */
     public function test_methodNames_returns_the_names_of_the_public_methods_defined_by_the_reflected_class_if_the_ReflectionIS_PUBLIC_filter_is_specified(): void
     {
@@ -1970,6 +1984,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodNames()
+     *
      */
     public function test_methodNames_returns_the_names_of_the_static_methods_defined_by_the_reflected_class_if_the_ReflectionIS_STATIC_filter_is_specified(): void
     {
@@ -2004,6 +2020,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::IS_ABSTRACT
+     *
      */
     public function test_ReflectionIS_ABSTRACT_constant_is_equal_to_ReflectionMethodIS_ABSTRACT_constant(): void
     {
@@ -2026,6 +2044,8 @@ trait ReflectionTestTrait
      * constant.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::IS_FINAL
      *
      */
     public function test_ReflectionIS_FINAL_constant_is_equal_to_ReflectionMethodIS_FINAL_constant(): void
@@ -2050,6 +2070,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::IS_PRIVATE
+     *
      */
     public function test_ReflectionIS_PRIVATE_constant_is_equal_to_ReflectionMethodIS_PRIVATE_constant(): void
     {
@@ -2072,6 +2094,8 @@ trait ReflectionTestTrait
      * ReflectionMethod::IS_PROTECTED constant.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::IS_PROTECTED
      *
      */
     public function test_ReflectionIS_PROTECTED_constant_is_equal_to_ReflectionMethodIS_PROTECTED_constant(): void
@@ -2096,6 +2120,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::IS_PUBLIC
+     *
      */
     public function test_ReflectionIS_PUBLIC_constant_is_equal_to_ReflectionMethodIS_PUBLIC_constant(): void
     {
@@ -2119,6 +2145,7 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::IS_STATIC
      */
     public function test_ReflectionIS_STATIC_constant_is_equal_to_ReflectionMethodIS_STATIC_constant(): void
     {
@@ -2142,6 +2169,8 @@ trait ReflectionTestTrait
      * object instance.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodParameterNames()
      *
      */
     public function test_methodParameterNames_returns_a_numerically_indexed_array_of_the_names_of_the_parameters_defined_by_the_specified_method(): void
@@ -2172,6 +2201,8 @@ trait ReflectionTestTrait
      * instance.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::methodParameterTypes()
      *
      */
     public function test_methodParameterTypes_returns_a_numerically_indexed_array_of_the_types_expected_by_the_parameters_defined_by_the_specified_method(): void
@@ -2204,6 +2235,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
+     *
      */
     public function test_propertyNames_returns_the_names_of_all_the_properties_defined_by_the_reflected_class_if_no_filter_is_specified(): void
     {
@@ -2225,6 +2258,8 @@ trait ReflectionTestTrait
      * array the Reflection::IS_ABSTRACT filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
      *
      */
     public function test_propertyNames_returns_the_names_of_the_abstract_properties_defined_by_the_reflected_class_if_the_ReflectionIS_ABSTRACT_filter_is_specified(): void
@@ -2256,6 +2291,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
      *
      */
     public function test_propertyNames_returns_the_names_of_the_final_properties_defined_by_the_reflected_class_if_the_ReflectionIS_FINAL_filter_is_specified(): void
@@ -2291,6 +2328,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
+     *
      */
     public function test_propertyNames_returns_the_names_of_the_private_properties_defined_by_the_reflected_class_if_the_ReflectionIS_PRIVATE_filter_is_specified(): void
     {
@@ -2325,6 +2364,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
      *
      */
     public function test_propertyNames_returns_the_names_of_the_protected_properties_defined_by_the_reflected_class_if_the_ReflectionIS_PROTECTED_filter_is_specified(): void
@@ -2362,6 +2403,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
+     *
      */
     public function test_propertyNames_returns_the_names_of_the_public_properties_defined_by_the_reflected_class_if_the_ReflectionIS_PUBLIC_filter_is_specified(): void
     {
@@ -2396,6 +2439,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyNames()
      *
      */
     public function test_propertyNames_returns_the_names_of_the_static_properties_defined_by_the_reflected_class_if_the_ReflectionIS_STATIC_filter_is_specified(): void
@@ -2433,6 +2478,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
+     *
      */
     public function test_PropertyTypes_returns_an_associatively_indexed_array_of_arrays_of_the_types_of_all_the_properties_declared_by_the_reflected_class_or_object_instance_if_no_filter_is_specified(): void
     {
@@ -2459,6 +2506,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
+     *
      */
     public function test_propertyTypes_returns_an_empty_array_if_the_ReflectionIS_ABSTRACT_filter_is_specified(): void
     {
@@ -2483,6 +2532,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
      *
      */
     public function test_propertyTypes_returns_the_types_of_the_final_properties_declared_by_the_reflected_class_if_the_ReflectionIS_FINAL_filter_is_specified(): void
@@ -2520,6 +2571,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
+     *
      */
     public function test_propertyTypes_returns_the_types_of_the_private_properties_declared_by_the_reflected_class_if_the_ReflectionIS_PRIVATE_filter_is_specified(): void
     {
@@ -2555,6 +2608,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
      *
      */
     public function test_propertyTypes_returns_the_types_of_the_protected_properties_declared_by_the_reflected_class_if_the_ReflectionIS_PROTECTED_filter_is_specified(): void
@@ -2593,6 +2648,8 @@ trait ReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
+     *
      */
     public function test_propertyTypes_returns_the_types_of_the_public_properties_declared_by_the_reflected_class_if_the_ReflectionIS_PUBLIC_filter_is_specified(): void
     {
@@ -2628,6 +2685,8 @@ trait ReflectionTestTrait
      * filter is specified.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::propertyTypes()
      *
      */
     public function test_propertyTypes_returns_the_types_of_the_static_properties_declared_by_the_reflected_class_if_the_ReflectionIS_STATIC_filter_is_specified(): void

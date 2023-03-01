@@ -530,6 +530,8 @@ trait ObjectReflectionTestTrait
      *
      * @return void
      *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection::propertyValues()
+     *
      */
     public function test_propertyValues_returns_the_values_of_the_properties_defined_by_the_reflected_object(): void
     {
@@ -551,6 +553,8 @@ trait ObjectReflectionTestTrait
      * object instance.
      *
      * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection::reflectedObject()
      *
      */
     public function test_reflectedObject_returns_the_reflected_object_instance(): void
