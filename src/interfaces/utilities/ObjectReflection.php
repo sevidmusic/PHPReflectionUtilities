@@ -70,7 +70,15 @@ interface ObjectReflection extends Reflection
      * @example
      *
      * ```
-     * var_dump($this->propertyValues());
+     * var_dump($reflection->type());
+     *
+     * // example output:
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#7 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
+     *   string(65) "Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection"
+     * }
+     *
+     * var_dump($reflection->propertyValues());
      *
      * // example output:
      * array(2) {
@@ -83,7 +91,6 @@ interface ObjectReflection extends Reflection
      *     string(8) "stdClass"
      *   }
      * }
-     *
      * ```
      *
      */
@@ -97,7 +104,15 @@ interface ObjectReflection extends Reflection
      * @example
      *
      * ```
-     * var_dump($reflectedObject());
+     * var_dump($reflection->type());
+     *
+     * // example output:
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#7 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
+     *   string(65) "Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection"
+     * }
+     *
+     * var_dump($reflection->reflectedObject());
      *
      * // example output:
      * object(Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection)#3 (2) {
@@ -106,8 +121,6 @@ interface ObjectReflection extends Reflection
      *     ["name"]=>
      *     string(8) "stdClass"
      *   }
-     *
-     * // example output:
      *   ["object":"Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection":private]=>
      *   object(stdClass)#2 (0) {
      *   }
