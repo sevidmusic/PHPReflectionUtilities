@@ -38,7 +38,9 @@ class ReflectionTest extends PHPReflectionUtilitiesTest
      * being tested.
      *
      * Full documentation of this method can be found in
-     * roady/tests/interfaces/utilities/ReflectionTestTrait.php
+     * PHPReflectionUtilities/tests/interfaces/utilities/ReflectionTestTrait.php
+     *
+     * @see https://github.com/sevidmusic/PHPReflectionUtilities/blob/main/tests/interfaces/utilities/ReflectionTestTrait.php
      *
      * @param class-string|object $class The class-string or object
      *                                   instance to be reflected.
@@ -51,6 +53,7 @@ class ReflectionTest extends PHPReflectionUtilitiesTest
      * $this->setClassToBeReflected($this::class);
      *
      * ```
+     *
      */
     protected function setClassToBeReflected(
         string|object $class
