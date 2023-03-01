@@ -173,7 +173,7 @@ trait ObjectReflectionTestTrait
 
     /**
      * Add the values of the properties defined by the parent
-     * classes of the of specified object to the specified array.
+     * classes of the specified object to the specified array.
      *
      * Index the values by the name of the property they are
      * assigned to.
