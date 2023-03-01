@@ -12,8 +12,8 @@ This library makes use of the following libraries:
 
 - [Classes](#classes)
 
-  - [Darling\PHPTextTypes\Text](#darlingphpreflectionutilitiesreflection)
-  - [Darling\PHPTextTypes\ClassString](#darlingreflectionutilitiesobjectreflection)
+  - [Darling\PHPReflectionUtilities\classes\utilities\Reflection(#darlingphpreflectionutilitiesreflection)
+  - [Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection(#darlingphpreflectionutilitiesreflection)
 
 # Installation
 
