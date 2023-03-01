@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69968d2ec26f9d80bb36b39b39832e09",
+    "content-hash": "e360e55f7cf60c7fb0714373574f529d",
     "packages": [
         {
             "name": "darling/php-text-types",
