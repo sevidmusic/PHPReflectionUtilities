@@ -1520,8 +1520,19 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassBExtendsClassA.php
      *
      */
     public function reflectedClass(): string|object
@@ -1537,8 +1548,19 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($this->reflectionTestInstance());
+     *
+     * object(Darling\PHPReflectionUtilities\classes\utilities\Reflection)#345 (1) {
+     *   ["reflectionClass":"Darling\PHPReflectionUtilities\classes\utilities\Reflection":private]=>
+     *   object(ReflectionClass)#344 (1) {
+     *     ["name"]=>
+     *     string(45) "tests\dev\mock\classes\PublicStaticProperties"
+     *   }
+     * }
      *
      * ```
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicStaticProperties.php
      *
      */
     protected function reflectionTestInstance(): Reflection
@@ -1559,8 +1581,17 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * $this->setReflectionTestInstance(
+     *     new \Darling\PHPReflectionUtilities\interfaces\utilities\Reflection(
+     *         new \ReflectionClass(
+     *             \Darling\PHPReflectionUtilities\interfaces\utilities\Reflection::class
+     *         )
+     *     );
+     * );
      *
      * ```
+     *
+     * @see https://www.php.net/manual/en/class.reflectionclass.php
      *
      */
     protected function setReflectionTestInstance(
@@ -1590,6 +1621,16 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * protected function setUp(): void
+     * {
+     *     $class = $this->randomClassStringOrObjectInstance();
+     *     $this->setClassToBeReflected($class);
+     *     $this->setReflectionTestInstance(
+     *         new Reflection(
+     *             $this->reflectionClass($class)
+     *         )
+     *     );
+     * }
      *
      * ```
      *
@@ -1607,6 +1648,9 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * $this->setClassToBeReflected(
+     *     $this->randomClassStringOrObjectInstance()
+     * );
      *
      * ```
      *
@@ -1628,8 +1672,23 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump($class);
+     * object(tests\dev\mock\classes\ProtectedMethods)#366 (0) {
+     * }
+     *
+     * var_dump($this->reflectionClass($class));
+     *
+     * // example output:
+     * object(ReflectionClass)#356 (1) {
+     *   ["name"]=>
+     *   string(39) "tests\dev\mock\classes\ProtectedMethods"
+     * }
      *
      * ```
+     *
+     * @see https://www.php.net/manual/en/class.reflectionclass.php
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ProtectedMethods.php
      *
      */
     protected function reflectionClass(
@@ -1651,8 +1710,24 @@ trait ReflectionTestTrait
      * @example
      *
      * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(46) "tests\dev\mock\classes\PrivateStaticProperties"
+     *
+     * var_dump($this->randomMethodName());
+     *
+     * // example output:
+     * string(38) "getPrivateStaticPropertiesPrivateArray"
      *
      * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PrivateStaticProperties.php
      *
      */
     protected function randomMethodName(): string
