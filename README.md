@@ -6,7 +6,10 @@ with PHP.
 This library makes use of the following libraries:
 
 [Darling\PHPUnitTestUtilities](https://github.com/sevidmusic/PHPUnitTestUtilities)
+
 [Darling\PHPTextTypes](https://github.com/sevidmusic/PHPTextTypes)
+
+# Overview
 
 - [Installation](#installation)
 
