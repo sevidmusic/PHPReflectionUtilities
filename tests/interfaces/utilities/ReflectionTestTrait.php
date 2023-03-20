@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\interfaces\utilities;
+namespace Darling\PHPReflectionUtilities\Tests\interfaces\utilities;
 
 use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
 use \ReflectionClass;
@@ -93,7 +93,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(45) "tests\dev\mock\classes\ProtectedStaticMethods"
+     * string(74) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ProtectedStaticMethods"
      *
      * $this->determineReflectedClassesMethodNames(
      *     \ReflectionMethod::IS_STATIC
@@ -168,7 +168,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(36) "tests\dev\mock\classes\PublicMethods"
+     * string(65) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicMethods"
      *
      * var_dump(
      *     $this->determineReflectedClassesMethodParameterNames(
@@ -237,7 +237,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output
-     * string(42) "tests\dev\mock\classes\PublicStaticMethods"
+     * string(71) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicStaticMethods"
      *
      * var_dump(
      *     $this->determineReflectedClassesMethodParameterTypes(
@@ -360,7 +360,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(38) "tests\dev\mock\classes\ClassABaseClass"
+     * string(67) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassABaseClass"
      *
      * var_dump($parameterOrProperty);
      *
@@ -369,7 +369,7 @@ trait ReflectionTestTrait
      *   ["name"]=>
      *   string(29) "classABaseClassPublicProperty"
      *   ["class"]=>
-     *   string(38) "tests\dev\mock\classes\ClassABaseClass"
+     *   string(67) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassABaseClass"
      * }
      *
      * var_dump($types);
@@ -496,7 +496,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(36) "tests\dev\mock\classes\PublicMethods"
+     * string(65) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicMethods"
      *
      * var_dump($parameterOrProperty);
      *
@@ -609,7 +609,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(45) "tests\dev\mock\classes\PublicStaticProperties"
+     * string(74) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicStaticProperties"
      *
      * var_dump(
      *     $this->determineReflectedClassesPropertyNames(
@@ -742,14 +742,14 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(60) "tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
+     * string(89) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
      *
      * var_dump($reflectionClass);
      *
      * // example output:
      * object(ReflectionClass)#344 (1) {
      *   ["name"]=>
-     *   string(60) "tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
+     *   string(89) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
      * }
      *
      * var_dump($propertyNames);
@@ -894,7 +894,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(46) "tests\dev\mock\classes\PrivateStaticProperties"
+     * string(75) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PrivateStaticProperties"
      *
      * var_dump(
      *     $this->addParentPropertyNamesToArray(
@@ -1077,7 +1077,7 @@ trait ReflectionTestTrait
      * // example output:
      * object(ReflectionClass)#356 (1) {
      *   ["name"]=>
-     *   string(41) "tests\dev\mock\classes\ReflectedBaseClass"
+     *   string(70) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ReflectedBaseClass"
      * }
      *
      * var_dump($propertyTypes);
@@ -1482,7 +1482,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     * string(71) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * var_dump(
      *     $this->reflectionMethod('classBExtendsClassAPrivateMethod')
@@ -1493,7 +1493,7 @@ trait ReflectionTestTrait
      *   ["name"]=>
      *   string(32) "classBExtendsClassAPrivateMethod"
      *   ["class"]=>
-     *   string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     *   string(71) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * ```
      *
@@ -1527,7 +1527,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     * string(71) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * ```
      *
@@ -1554,7 +1554,7 @@ trait ReflectionTestTrait
      *   ["reflectionClass":"Darling\PHPReflectionUtilities\classes\utilities\Reflection":private]=>
      *   object(ReflectionClass)#344 (1) {
      *     ["name"]=>
-     *     string(45) "tests\dev\mock\classes\PublicStaticProperties"
+     *     string(74) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicStaticProperties"
      *   }
      * }
      *
@@ -1673,7 +1673,7 @@ trait ReflectionTestTrait
      *
      * ```
      * var_dump($class);
-     * object(tests\dev\mock\classes\ProtectedMethods)#366 (0) {
+     * object(Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ProtectedMethods)#366 (0) {
      * }
      *
      * var_dump($this->reflectionClass($class));
@@ -1681,7 +1681,7 @@ trait ReflectionTestTrait
      * // example output:
      * object(ReflectionClass)#356 (1) {
      *   ["name"]=>
-     *   string(39) "tests\dev\mock\classes\ProtectedMethods"
+     *   string(68) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ProtectedMethods"
      * }
      *
      * ```
@@ -1717,7 +1717,7 @@ trait ReflectionTestTrait
      * );
      *
      * // example output:
-     * string(46) "tests\dev\mock\classes\PrivateStaticProperties"
+     * string(75) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PrivateStaticProperties"
      *
      * var_dump($this->randomMethodName());
      *

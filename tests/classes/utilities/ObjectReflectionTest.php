@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\classes\utilities;
+namespace Darling\PHPReflectionUtilities\Tests\classes\utilities;
 
 use Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection;
-use tests\PHPReflectionUtilitiesTest;
-use tests\classes\utilities\ReflectionTest;
-use tests\interfaces\utilities\ObjectReflectionTestTrait;
+use Darling\PHPReflectionUtilities\Tests\PHPReflectionUtilitiesTest;
+use Darling\PHPReflectionUtilities\Tests\classes\utilities\ReflectionTest;
+use Darling\PHPReflectionUtilities\Tests\interfaces\utilities\ObjectReflectionTestTrait;
 
 class ObjectReflectionTest extends ReflectionTest
 {

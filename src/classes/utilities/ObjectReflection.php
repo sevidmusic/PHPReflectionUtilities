@@ -83,7 +83,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
      * // example output:
      * object(Darling\PHPTextTypes\classes\strings\ClassString)#350 (1) {
      *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(42) "tests\dev\mock\classes\ClassBExtendsClassA"
+     *   string(71) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassBExtendsClassA"
      *
      * }
      *
@@ -207,7 +207,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
      *
      * object(ReflectionClass)#353 (1) {
      *   ["name"]=>
-     *   string(39) "tests\dev\mock\classes\ProtectedMethods"
+     *   string(68) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ProtectedMethods"
      * }
      *
      * ```
@@ -248,7 +248,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
      *   ["name"]=>
      *   string(37) "protectedStaticPropertiesPrivateArray"
      *   ["class"]=>
-     *   string(48) "tests\dev\mock\classes\ProtectedStaticProperties"
+     *   string(77) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ProtectedStaticProperties"
      * }
      *
      * var_dump($propertyValues);

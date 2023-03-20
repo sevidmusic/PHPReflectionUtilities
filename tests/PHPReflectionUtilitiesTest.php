@@ -1,6 +1,6 @@
 <?php
 
-namespace tests;
+namespace Darling\PHPReflectionUtilities\Tests;
 
 use Darling\PHPUnitTestUtilities\traits\PHPUnitConfigurationTests;
 use Darling\PHPUnitTestUtilities\traits\PHPUnitRandomValues;
