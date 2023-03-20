@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\interfaces\utilities;
+namespace Darling\PHPReflectionUtilities\Tests\interfaces\utilities;
 
 use \ReflectionProperty;
 use Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection;
-use tests\interfaces\utilities\ReflectionTestTrait;
+use Darling\PHPReflectionUtilities\Tests\interfaces\utilities\ReflectionTestTrait;
 
 /**
  * The ObjectReflectionTestTrait defines common tests for
@@ -113,10 +113,10 @@ trait ObjectReflectionTestTrait
      *   ["reflectionClass":"Darling\PHPReflectionUtilities\classes\utilities\Reflection":private]=>
      *   object(ReflectionClass)#353 (1) {
      *     ["name"]=>
-     *     string(37) "tests\dev\mock\classes\PrivateMethods"
+     *     string(66) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PrivateMethods"
      *   }
      *   ["object":"Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection":private]=>
-     *   object(tests\dev\mock\classes\PrivateMethods)#370 (0) {
+     *   object(Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PrivateMethods)#370 (0) {
      *   }
      * }
      *
@@ -143,42 +143,42 @@ trait ObjectReflectionTestTrait
      * var_dump($this->reflectedObject());
      *
      * // example output:
-     * object(tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA)#371 (18) {
-     *   ["classABaseClassPrivateProperty":"tests\dev\mock\classes\ClassABaseClass":private]=>
+     * object(Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA)#371 (18) {
+     *   ["classABaseClassPrivateProperty":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassABaseClass":private]=>
      *   bool(true)
      *   ["classABaseClassProtectedProperty":protected]=>
      *   bool(false)
      *   ["classABaseClassPublicProperty"]=>
      *   bool(true)
-     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassABaseClass":private]=>
+     *   ["privatePropertySharedName":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassABaseClass":private]=>
      *   bool(true)
      *   ["protectedPropertySharedName":protected]=>
      *   bool(true)
      *   ["publicPropertySharedName"]=>
      *   bool(true)
-     *   ["classBExtendsClassAPrivateProperty":"tests\dev\mock\classes\ClassBExtendsClassA":private]=>
+     *   ["classBExtendsClassAPrivateProperty":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassBExtendsClassA":private]=>
      *   bool(true)
      *   ["classBExtendsClassAProtectedProperty":protected]=>
      *   bool(false)
      *   ["classBExtendsClassAPublicProperty"]=>
      *   bool(true)
-     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassBExtendsClassA":private]=>
+     *   ["privatePropertySharedName":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassBExtendsClassA":private]=>
      *   bool(true)
-     *   ["classCExtendsClassBInheirtsFromClassAPrivateProperty":"tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA":private]=>
+     *   ["classCExtendsClassBInheirtsFromClassAPrivateProperty":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA":private]=>
      *   bool(true)
      *   ["classCExtendsClassBInheirtsFromClassAProtectedProperty":protected]=>
      *   bool(false)
      *   ["classCExtendsClassBInheirtsFromClassAPublicProperty"]=>
      *   bool(true)
-     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA":private]=>
+     *   ["privatePropertySharedName":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA":private]=>
      *   bool(true)
-     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPrivateProperty":"tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA":private]=>
+     *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPrivateProperty":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA":private]=>
      *   bool(true)
      *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAProtectedProperty":protected]=>
      *   bool(false)
      *   ["classDExtendsClassCInheirtsFromClassBAndFromClassAPublicProperty"]=>
      *   NULL
-     *   ["privatePropertySharedName":"tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA":private]=>
+     *   ["privatePropertySharedName":"Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA":private]=>
      *   bool(true)
      * }
      *
@@ -210,7 +210,7 @@ trait ObjectReflectionTestTrait
      * // example output:
      *  object(Darling\PHPTextTypes\classes\strings\ClassString)#365 (1) {
      *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(39) "tests\dev\mock\classes\PublicProperties"
+     *   string(68) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicProperties"
      * }
      *
      * var_dump($this->determineReflectedClassesPropertyValues());
@@ -294,7 +294,7 @@ trait ObjectReflectionTestTrait
      * // example output:
      * object(Darling\PHPTextTypes\classes\strings\ClassString)#351 (1) {
      *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
-     *   string(60) "tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
+     *   string(89) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassCExtendsClassBInheirtsFromClassA"
      * }
      *
      * var_dump($propertyValues);
@@ -450,7 +450,7 @@ trait ObjectReflectionTestTrait
      *   ["name"]=>
      *   string(22) "reflectedClassProperty"
      *   ["class"]=>
-     *   string(37) "tests\dev\mock\classes\ReflectedClass"
+     *   string(66) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ReflectedClass"
      * }
      *
      * var_dump($propertyValues);

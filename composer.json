@@ -18,7 +18,7 @@
     "autoload": {
         "psr-4": {
             "Darling\\PHPReflectionUtilities\\": "src/",
-            "tests\\": "tests/"
+            "Darling\\PHPReflectionUtilities\\Tests\\": "tests/"
         }
     },
     "require-dev": {
