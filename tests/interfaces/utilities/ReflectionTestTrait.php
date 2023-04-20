@@ -2,7 +2,8 @@
 
 namespace Darling\PHPReflectionUtilities\Tests\interfaces\utilities;
 
-use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
+use \Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
+use \Darling\PHPTextTypes\classes\strings\ClassString;
 use \ReflectionClass;
 use \ReflectionMethod;
 use \ReflectionNamedType;
@@ -1741,27 +1742,34 @@ trait ReflectionTestTrait
     }
 
     /**
-     * Test that the type() method returns the type of the
-     * reflected class.
+     * Test that the type() method returns an instance of a
+     * ClassString that indicates the type of the reflected
+     * class.
      *
      * @return void
      *
      * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::type()
      *
      */
-    public function test_type_returns_type_of_reflected_class(): void
+    public function test_type_returns_an_instance_of_a_ClassString_that_indicates_the_type_of_the_reflected_class(): void
     {
-        $this->assertEquals(
+        $reflectedClass = $this->reflectedClass();
+        $expectedClassString = new ClassString(
             (
-                is_object($this->reflectedClass())
-                ? $this->reflectedClass()::class
-                : $this->reflectedClass()
+                is_object($reflectedClass)
+                ? $this->reflectedClass::class
+                : $this->reflectedClass
             ),
+        );
+        $this->assertEquals(
+            $expectedClassString,
             $this->reflectionTestInstance()->type(),
             $this->testFailedMessage(
                 $this->reflectionTestInstance(),
                 'type',
-                'return the type of the reflected class'
+                'return an instance of a ' .
+                ClassString::class .
+                ' that indicates the type of the reflected class'
             ),
         );
     }

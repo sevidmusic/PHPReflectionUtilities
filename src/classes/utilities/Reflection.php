@@ -19,9 +19,9 @@ class Reflection implements ReflectionInterface
      * Instantiate a new Reflection of the class or object instance
      * reflected by the specified ReflectionClass instance.
      *
-     * @param ReflectionClass <object> $reflectionClass
-     *                                               An instance of a
-     *                                               ReflectionClass.
+     * @param ClassString $classString An instance of a ClassString
+     *                                 that indicates the class to
+     *                                 be reflected.
      *
      * @example
      *
@@ -35,7 +35,7 @@ class Reflection implements ReflectionInterface
      *
      */
     public function __construct(
-        private ReflectionClass $reflectionClass
+        private ClassString $classString
     ) {}
 
     public function methodNames(int|null $filter = null): array
@@ -71,7 +71,7 @@ class Reflection implements ReflectionInterface
     public function methodParameterTypes(string $method): array
     {
         if(empty($method)) { return []; }
-        $reflectionClass = $this->reflectionClass;
+        $reflectionClass = $this->reflectionClass();
         $parameterTypes = [];
         foreach(
             $this->reflectionMethod($method)->getParameters()
@@ -774,7 +774,11 @@ class Reflection implements ReflectionInterface
      */
     protected function reflectionClass(): ReflectionClass
     {
-        return $this->reflectionClass;
+        /**
+         * @var class-string $fullyQulifiedNamespaceAndClassname
+         */
+        $fullyQulifiedNamespaceAndClassname = $this->classString->__toString();
+        return new ReflectionClass($fullyQulifiedNamespaceAndClassname);
     }
 
 }
