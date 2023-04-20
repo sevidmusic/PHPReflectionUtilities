@@ -2,8 +2,9 @@
 
 namespace Darling\PHPReflectionUtilities\classes\utilities;
 
-use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
-use Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
+use \Darling\PHPReflectionUtilities\classes\utilities\Reflection;
+use \Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
+use \Darling\PHPTextTypes\classes\strings\ClassString;
 use \ReflectionClass;
 use \ReflectionMethod;
 use \ReflectionProperty;
@@ -31,7 +32,8 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
     public function __construct(
         private object $object
     ) {
-        parent::__construct($this->newReflectionClass($object));
+        $classString = new ClassString($object);
+        parent::__construct($classString);
     }
 
     public function propertyValues(): array
@@ -191,35 +193,6 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
         }
     }
 
-    /**
-     * Return an instance of a ReflectionClass to reflect the
-     * specified object instance.
-     *
-     * @param object $object The object instance the ReflectionClass
-     *                       instance will reflect.
-     *
-     * @return ReflectionClass <object>
-     *
-     * @example
-     *
-     * ```
-     * var_dump($this->newReflectionClass($this->reflectedObject()));
-     *
-     * object(ReflectionClass)#353 (1) {
-     *   ["name"]=>
-     *   string(68) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ProtectedMethods"
-     * }
-     *
-     * ```
-     *
-     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ProtectedMethods.php
-     * @see https://www.php.net/manual/en/class.reflectionclass.php
-     *
-     */
-    private function newReflectionClass(object $object): ReflectionClass
-    {
-        return new ReflectionClass($object);
-    }
 
     /**
      * Add the value of a property assigned to the reflected

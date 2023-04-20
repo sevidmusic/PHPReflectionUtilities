@@ -3,9 +3,10 @@
 namespace Darling\PHPReflectionUtilities\Tests\classes\utilities;
 
 use \ReflectionClass;
-use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
-use Darling\PHPReflectionUtilities\Tests\PHPReflectionUtilitiesTest;
-use Darling\PHPReflectionUtilities\Tests\interfaces\utilities\ReflectionTestTrait;
+use \Darling\PHPTextTypes\classes\strings\ClassString;
+use \Darling\PHPReflectionUtilities\classes\utilities\Reflection;
+use \Darling\PHPReflectionUtilities\Tests\PHPReflectionUtilitiesTest;
+use \Darling\PHPReflectionUtilities\Tests\interfaces\utilities\ReflectionTestTrait;
 
 class ReflectionTest extends PHPReflectionUtilitiesTest
 {
@@ -24,10 +25,21 @@ class ReflectionTest extends PHPReflectionUtilitiesTest
     protected function setUp(): void
     {
         $class = $this->randomClassStringOrObjectInstance();
-        $this->setClassToBeReflected($class);
+        $classString = new ClassString(
+            (
+                is_object($class)
+                ? $class::class
+                : $class
+            )
+        );
+        /**
+         * @var class-string $classStringString
+         */
+        $classStringString = $classString->__toString();
+        $this->setClassToBeReflected($classStringString);
         $this->setReflectionTestInstance(
             new Reflection(
-                $this->reflectionClass($class)
+                $classString
             )
         );
     }
