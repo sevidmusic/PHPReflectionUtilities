@@ -44,9 +44,10 @@ These classes can be used as is, or extended.
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Darling\PHPReflectionUtilities\classes\utilities\Reflection;
+use \Darling\PHPReflectionUtilities\classes\utilities\Reflection;
+use \Darling\PHPTextTypes\classes\strings\ClassString;
 
-$reflection = new Reflection(new \ReflectionClass(Reflection::class));
+$reflection = new Reflection(new ClassString(Reflection::class));
 
 var_dump($reflection->type()->__toString());
 
@@ -76,7 +77,7 @@ For example:
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection;
+use \Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection;
 
 $instanceToReflect = new ArrayIterator(array('test1', 'test2', 'test3'));
 
@@ -88,4 +89,5 @@ var_dump($objectReflection->methodNames());
 
 
 ```
+
 
