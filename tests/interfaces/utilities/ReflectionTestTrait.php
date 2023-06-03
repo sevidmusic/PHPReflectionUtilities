@@ -2722,5 +2722,30 @@ trait ReflectionTestTrait
             )
         );
     }
+
+    /**
+     * Test that the reflectionClass method returns an instance of a
+     * ReflectionClass that reflects the class or object instance.
+     *
+     * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\Reflection::reflectionClass()
+     *
+     */
+    public function test_reflectionClass_returns_an_instance_of_a_ReflectionClass_that_reflects_the_class_or_object_instance_reflected_by_the_Reflection(): void
+    {
+        $expectedReflectionClass = $this->reflectionClass($this->reflectedClass);
+        $this->assertEquals(
+            $expectedReflectionClass,
+            $this->reflectionTestInstance()->reflectionClass(),
+            $this->testFailedMessage(
+                $this->reflectionTestInstance(),
+                'reflectionClass',
+                'return an instance of a ReflectionClass that ' .
+                'reflects the class or object instance reflected ' .
+                'by the reflection'
+            ),
+        );
+    }
 }
 
