@@ -452,7 +452,7 @@ interface Reflection
      * @example
      *
      * ```
-     * var_dump($this->reflectionClass());
+     * var_dump($reflection->reflectionClass());
      *
      * // example output:
      * object(ReflectionClass)#3 (1) {
