@@ -3,6 +3,7 @@
 namespace Darling\PHPReflectionUtilities\interfaces\utilities;
 
 use Darling\PHPTextTypes\interfaces\strings\ClassString;
+use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 
@@ -441,6 +442,30 @@ interface Reflection
      *
      */
     public function type(): ClassString;
+
+    /**
+     * Return an instance of a ReflectionClass instance that reflects
+     * the class-string or object reflected by the Reflection.
+     *
+     * @return ReflectionClass<object>
+     *
+     * @example
+     *
+     * ```
+     * var_dump($this->reflectionClass());
+     *
+     * // example output:
+     * object(ReflectionClass)#3 (1) {
+     *   ["name"]=>
+     *   string(65) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicMethods"
+     * }
+     *
+     * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
+     *
+     */
+    public function reflectionClass(): ReflectionClass;
 
 }
 

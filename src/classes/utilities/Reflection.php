@@ -160,6 +160,15 @@ class Reflection implements ReflectionInterface
         );
     }
 
+    public function reflectionClass(): ReflectionClass
+    {
+        /**
+         * @var class-string $fullyQulifiedNamespaceAndClassname
+         */
+        $fullyQulifiedNamespaceAndClassname = $this->classString->__toString();
+        return new ReflectionClass($fullyQulifiedNamespaceAndClassname);
+    }
+
     /**
      * For each property declared by the parents of the reflected
      * class or object instance add a numerically indexed array of
@@ -748,37 +757,6 @@ class Reflection implements ReflectionInterface
             $types[$parameterOrProperty->getName()][] =
                 'null';
         }
-    }
-
-    /**
-     * Return the ReflectionClass instance that reflects the
-     * class-string or object reflected by this Reflection.
-     *
-     * @return ReflectionClass<object>
-     *
-     * @example
-     *
-     * ```
-     * var_dump($this->reflectionClass());
-     *
-     * // example output:
-     * object(ReflectionClass)#3 (1) {
-     *   ["name"]=>
-     *   string(65) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicMethods"
-     * }
-     *
-     * ```
-     *
-     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicMethods.php
-     *
-     */
-    protected function reflectionClass(): ReflectionClass
-    {
-        /**
-         * @var class-string $fullyQulifiedNamespaceAndClassname
-         */
-        $fullyQulifiedNamespaceAndClassname = $this->classString->__toString();
-        return new ReflectionClass($fullyQulifiedNamespaceAndClassname);
     }
 
 }
