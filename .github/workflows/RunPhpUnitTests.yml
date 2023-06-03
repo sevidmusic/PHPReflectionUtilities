@@ -1,4 +1,4 @@
-name: Run PHP Stan Tests
+name: Run PHP Unit Tests
 
 on:
   push:
