@@ -23,7 +23,14 @@ class ObjectReflectionTest extends ReflectionTest
 
     protected function setUp(): void
     {
-        $object = $this->randomObjectInstance();
+        $stdClass = new \stdClass();
+        $stdClass->foo = str_shuffle('abcdefg');
+        $stdClass->bar = str_shuffle('abcdefg');
+        $objects = [
+            $this->randomObjectInstance(),
+            $stdClass,
+        ];
+        $object = $objects[array_rand($objects)];
         $this->setClassToBeReflected($object);
         $this->setObjectToBeReflected($object);
         $objectReflection = new ObjectReflection($object);
