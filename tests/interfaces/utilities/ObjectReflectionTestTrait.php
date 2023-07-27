@@ -3,8 +3,9 @@
 namespace Darling\PHPReflectionUtilities\Tests\interfaces\utilities;
 
 use \ReflectionProperty;
-use Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection;
-use Darling\PHPReflectionUtilities\Tests\interfaces\utilities\ReflectionTestTrait;
+use \Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection;
+use \Darling\PHPReflectionUtilities\Tests\interfaces\utilities\ReflectionTestTrait;
+use \ReflectionObject;
 
 /**
  * The ObjectReflectionTestTrait defines common tests for
@@ -249,10 +250,10 @@ trait ObjectReflectionTestTrait
      */
     protected function determineReflectedClassesPropertyValues(): array
     {
-        $reflectionClass = $this->reflectionClass(
+        $reflectionObject = $this->reflectionObject(
             $this->reflectedObject()
         );
-        $properties = $reflectionClass->getProperties();
+        $properties = $reflectionObject->getProperties();
         $propertyValues = array();
         foreach ($properties as $property) {
             $this->addPropertyValueToArray(
@@ -408,8 +409,8 @@ trait ObjectReflectionTestTrait
         array &$propertyValues
     ): void
     {
-        $reflectionClass = $this->reflectionClass($this->reflectedObject());
-        while($parent = $reflectionClass->getParentClass()) {
+        $reflectionObject = $this->reflectionObject($this->reflectedObject());
+        while($parent = $reflectionObject->getParentClass()) {
             foreach($parent->getProperties() as $property) {
                 if(!isset($propertyValues[$property->getName()])) {
                     $this->addPropertyValueToArray(
@@ -418,7 +419,7 @@ trait ObjectReflectionTestTrait
                     );
                 }
             }
-            $reflectionClass = $parent;
+            $reflectionObject = $parent;
         }
     }
 
@@ -523,6 +524,131 @@ trait ObjectReflectionTestTrait
     }
 
     /**
+     * Return an instance of a ReflectionObject that reflects
+     * the reflected object instance.
+     *
+     * @return ReflectionObject
+     *
+     */
+    public function reflectionObject(object $object): ReflectionObject
+    {
+        return new ReflectionObject($object);
+    }
+
+    /**
+     * Return a numerically indexed array of the names of the
+     * properties declared by the class or object instance
+     * reflected by the Reflection implementation being tested.
+     *
+     * @param int|null $filter Determine what property names are
+     *                         included in the returned array
+     *                         based on the following filters:
+     *
+     *                         ReflectionMethod::IS_FINAL
+     *                         ReflectionMethod::IS_PRIVATE
+     *                         ReflectionMethod::IS_PROTECTED
+     *                         ReflectionMethod::IS_PUBLIC
+     *                         ReflectionMethod::IS_STATIC
+     *
+     *                         The names of the properties declared
+     *                         by the reflected class or object
+     *                         instance that meet the expectation of
+     *                         the given filters will be included in
+     *                         the returned array.
+     *
+     *                         If no filters are specified, then
+     *                         the names of all of the properties
+     *                         declared by the reflected class or
+     *                         object instance will be included
+     *                         in the returned array.
+     *
+     *                         Note: Note that some bitwise
+     *                         operations will not work with these
+     *                         filters. For instance a bitwise
+     *                         NOT (~), will not work as expected.
+     *                         For example, it is not possible to
+     *                         retrieve all non-static properties
+     *                         via a call like:
+     *
+     *                         ```
+     *                         $this->determineReflectedClassesPropertyNames(
+     *                             ~ReflectionMethod::IS_STATIC
+     *                         );
+     *
+     *                         ```
+     * @return array<int, string>
+     *
+     * @example
+     *
+     * ```
+     * var_dump(
+     *     is_object($this->reflectedClass())
+     *     ? $this->reflectedClass()::class
+     *     : $this->reflectedClass()
+     * );
+     *
+     * // example output:
+     * string(74) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\PublicStaticProperties"
+     *
+     * var_dump(
+     *     $this->determineReflectedClassesPropertyNames(
+     *         \ReflectionMethod::IS_STATIC
+     *     )
+     * );
+     *
+     * array(8) {
+     *   [0]=>
+     *   string(34) "publicStaticPropertiesPrivateArray"
+     *   [1]=>
+     *   string(33) "publicStaticPropertiesPrivateBool"
+     *   [2]=>
+     *   string(36) "publicStaticPropertiesPrivateClosure"
+     *   [3]=>
+     *   string(34) "publicStaticPropertiesPrivateFloat"
+     *   [4]=>
+     *   string(32) "publicStaticPropertiesPrivateInt"
+     *   [5]=>
+     *   string(43) "publicStaticPropertiesPrivateNullableObject"
+     *   [6]=>
+     *   string(35) "publicStaticPropertiesPrivateObject"
+     *   [7]=>
+     *   string(35) "publicStaticPropertiesPrivateString"
+     * }
+     *
+     * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/PublicStaticProperties.php
+     *
+     */
+    protected function determineReflectedClassesPropertyNames(
+        int|null $filter = null
+    ): array
+    {
+        $reflectionObject = $this->reflectionObject(
+            $this->reflectedObject()
+        );
+        $propertyNames = [];
+        foreach(
+            $reflectionObject->getProperties($filter)
+            as
+            $reflectionProperty
+        ) {
+            array_push(
+                $propertyNames,
+                $reflectionProperty->getName()
+            );
+        }
+        $this->addParentPropertyNamesToArray(
+            $reflectionObject,
+            $propertyNames,
+            $filter
+        );
+        $propertyNames = array_unique($propertyNames);
+        return $propertyNames;
+    }
+
+    /**
      * Test that the propertyValues() method returns an
      * associatively indexed array of the values of the
      * properties defined by the reflected object indexed
@@ -569,5 +695,31 @@ trait ObjectReflectionTestTrait
             )
         );
     }
+
+    /**
+     * Test that the reflectionObject method returns an instance of a
+     * ReflectionObject that reflects object instance.
+     *
+     * @return void
+     *
+     * @covers Darling\PHPReflectionUtilities\classes\utilities\ObjectReflection::reflectionObject()
+     *
+     */
+    public function test_reflectionObject_returns_an_instance_of_a_ReflectionObject_that_reflects_the_object_instance_reflected_by_the_ObjectReflection(): void
+    {
+        $expectedReflectionClass = $this->reflectionObject($this->reflectedObject);
+        $this->assertEquals(
+            $expectedReflectionClass,
+            $this->objectReflectionTestInstance()->reflectionObject(),
+            $this->testFailedMessage(
+                $this->objectReflectionTestInstance(),
+                'reflectionObject',
+                'return an instance of a ReflectionClass that ' .
+                'reflects the class or object instance reflected ' .
+                'by the reflection'
+            ),
+        );
+    }
+
 }
 

@@ -3,6 +3,7 @@
 namespace Darling\PHPReflectionUtilities\interfaces\utilities;
 
 use Darling\PHPReflectionUtilities\interfaces\utilities\Reflection;
+use \ReflectionObject;
 
 /**
  * An ObjectReflection is a Reflection that specifically reflects
@@ -130,6 +131,15 @@ interface ObjectReflection extends Reflection
      *
      */
      public function reflectedObject(): object;
+
+     /**
+      * Return an instance of a ReflectionObject that reflects the
+      * object reflected by this ObjectReflection.
+      *
+      * @return ReflectionObject
+      *
+      */
+     public function reflectionObject(): ReflectionObject;
 
 }
 

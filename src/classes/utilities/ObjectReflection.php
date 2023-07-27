@@ -6,6 +6,7 @@ use \Darling\PHPReflectionUtilities\classes\utilities\Reflection;
 use \Darling\PHPReflectionUtilities\interfaces\utilities\ObjectReflection as ObjectReflectionInterface;
 use \Darling\PHPTextTypes\classes\strings\ClassString;
 use \ReflectionClass;
+use \ReflectionObject;
 use \ReflectionMethod;
 use \ReflectionProperty;
 
@@ -38,7 +39,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
 
     public function propertyValues(): array
     {
-        $properties = $this->reflectionClass()->getProperties();
+        $properties = $this->reflectionObject()->getProperties();
         $propertyValues = array();
         foreach ($properties as $property) {
             $this->addPropertyValueToArray(
@@ -179,8 +180,8 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
         array &$propertyValues
     ): void
     {
-        $reflectionClass = $this->reflectionClass();
-        while($parent = $reflectionClass->getParentClass()) {
+        $reflectionObject = $this->reflectionObject();
+        while($parent = $reflectionObject->getParentClass()) {
             foreach($parent->getProperties() as $property) {
                 if(!isset($propertyValues[$property->getName()])) {
                     $this->addPropertyValueToArray(
@@ -189,7 +190,7 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
                     );
                 }
             }
-            $reflectionClass = $parent;
+            $reflectionObject = $parent;
         }
     }
 
@@ -265,6 +266,159 @@ class ObjectReflection extends Reflection implements ObjectReflectionInterface
             $propertyValues[$property->getName()] =
                 null;
         }
+    }
+
+    public function reflectionObject(): ReflectionObject
+    {
+        return new ReflectionObject($this->reflectedObject());
+    }
+
+    /**
+     * Add the names of the properties declared by the parent classes
+     * of the object reflected by the specified ReflectionClass
+     * instance to the specified array.
+     *
+     * @param ReflectionClass <object> $reflectionObject
+     *                                     An instance of a
+     *                                     ReflectionClass that
+     *                                     reflects the class or
+     *                                     object instance whose
+     *                                     parent's property names
+     *                                     should be added to the
+     *                                     specified array of
+     *                                     $propertyNames.
+     *
+     * @param array<int, string> &$propertyNames The array to add the
+     *                                           property names to.
+     *
+     * @param int|null $filter Determine what property names are
+     *                         added to the specified array of
+     *                         $propertyNames based on the following
+     *                         filters:
+     *
+     *                         Reflection::IS_FINAL
+     *                         Reflection::IS_PRIVATE
+     *                         Reflection::IS_PROTECTED
+     *                         Reflection::IS_PUBLIC
+     *                         Reflection::IS_STATIC
+     *
+     *                         The names of all of the properties
+     *                         declared by the parents of the
+     *                         reflected class or object instance
+     *                         that meet the expectation of the
+     *                         given filters will be added to the
+     *                         specified array of $propertyNames.
+     *
+     *                         If no filters are specified, then
+     *                         the names of all of the properties
+     *                         declared by the parents of the
+     *                         reflected class or object instance
+     *                         will be added to the specified array
+     *                         of $propertyNames.
+     *
+     *                         Note: Note that some bitwise
+     *                         operations will not work with these
+     *                         filters. For instance a bitwise
+     *                         NOT (~), will not work as expected.
+     *                         For example, it is not possible to
+     *                         target all non-static properties
+     *                         via a call like:
+     *
+     *                         ```
+     *                         $this->
+     *                         determineReflectedClassesPropertyNames(
+     *                             ~Reflection::IS_STATIC
+     *                         );
+     *
+     *                         ```
+     *
+     * @return void
+     *
+     * @example
+     *
+     * ```
+     * var_dump($this->type());
+     *
+     * // example output:
+     * object(Darling\PHPTextTypes\classes\strings\ClassString)#4 (1) {
+     *   ["string":"Darling\PHPTextTypes\classes\strings\Text":private]=>
+     *   string(102) "Darling\PHPUnitTestUtilities\Tests\dev\mock\classes\ClassDExtendsClassCInheirtsFromClassBAndFromClassA"
+     * }
+     *
+     * $propertyNames = [];
+     *
+     * $reflection->addParentPropertyNamesToArray(
+     *     $this->reflectionObject(),
+     *     $propertyNames,
+     *     Reflection::IS_PRIVATE
+     * );
+     *
+     * var_dump($propertyNames);
+     *
+     * // example output:
+     * array(12) {
+     *   [0]=>
+     *   string(52) "classCExtendsClassBInheirtsFromClassAPrivateProperty"
+     *   [1]=>
+     *   string(58) "classCExtendsClassBInheirtsFromClassAPrivateStaticProperty"
+     *   [2]=>
+     *   string(25) "privatePropertySharedName"
+     *   [3]=>
+     *   string(31) "privateStaticPropertySharedName"
+     *   [4]=>
+     *   string(34) "classBExtendsClassAPrivateProperty"
+     *   [5]=>
+     *   string(40) "classBExtendsClassAPrivateStaticProperty"
+     *   [6]=>
+     *   string(25) "privatePropertySharedName"
+     *   [7]=>
+     *   string(31) "privateStaticPropertySharedName"
+     *   [8]=>
+     *   string(30) "classABaseClassPrivateProperty"
+     *   [9]=>
+     *   string(36) "classABaseClassPrivateStaticProperty"
+     *   [10]=>
+     *   string(25) "privatePropertySharedName"
+     *   [11]=>
+     *   string(31) "privateStaticPropertySharedName"
+     * }
+     *
+     * ```
+     *
+     * @see https://github.com/sevidmusic/PHPUnitTestUtilities/blob/main/tests/dev/mock/classes/ClassDExtendsClassCInheirtsFromClassBAndFromClassA.php
+     *
+     */
+    private function addParentPropertyNamesToArray(
+        ReflectionClass $reflectionObject,
+        array &$propertyNames,
+        $filter = null
+    ): void
+    {
+        while($parent = $reflectionObject->getParentClass()) {
+            foreach($parent->getProperties($filter) as $property) {
+                array_push($propertyNames, $property->getName());
+            }
+            $reflectionObject = $parent;
+        }
+    }
+
+    public function propertyNames(int|null $filter = null): array
+    {
+        $propertyNames = [];
+        foreach(
+            $this->reflectionObject()->getProperties($filter)
+            as
+            $reflectionProperty
+        ) {
+            array_push($propertyNames, $reflectionProperty->getName());
+        }
+        $this->addParentPropertyNamesToArray(
+            $this->reflectionObject(),
+            $propertyNames,
+            $filter
+        );
+        $propertyNames = array_unique($propertyNames);
+        return $propertyNames;
     }
 }
 
