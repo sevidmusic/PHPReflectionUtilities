@@ -625,20 +625,21 @@ class Reflection implements ReflectionInterface
      *
      */
     private function addUnionTypesToArray(
-        ReflectionProperty|ReflectionParameter
-        $parameterOrProperty,
+        ReflectionProperty|ReflectionParameter $parameterOrProperty,
         array &$types,
         ReflectionUnionType $reflectionUnionType
     ): void
     {
         $reflectionUnionTypes = $reflectionUnionType->getTypes();
         foreach($reflectionUnionTypes as $unionType) {
-            $types[$parameterOrProperty->getName()][]
-                = $unionType->getName();
-            $types[$parameterOrProperty->getName()] =
-                array_unique(
-                    $types[$parameterOrProperty->getName()]
-                );
+            if($unionType instanceof ReflectionNamedType) {
+                $types[$parameterOrProperty->getName()][]
+                    = $unionType->getName();
+                $types[$parameterOrProperty->getName()] =
+                    array_unique(
+                        $types[$parameterOrProperty->getName()]
+                    );
+            }
         }
         if(
             !in_array(
